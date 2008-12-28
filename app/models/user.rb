@@ -2,9 +2,18 @@ require 'digest/sha1'
 
 class User < ActiveRecord::Base
 
-  include Authentication
-  include Authentication::ByPassword
-  include Authentication::ByCookieToken
+  include LoginSystem
+  # include Authentication::ByPassword
+  # include Authentication::ByCookieToken
+
+
+  named_scope find_customer_all {
+    find(:all, :order => "login")
+  }
+
+  named_scope find_customer_all {
+    find(:all, :order => "name")
+  }
 
   after_create :send_account_activated_mail
 
@@ -15,18 +24,18 @@ class User < ActiveRecord::Base
   # (anything else a user can change should be added here)
   attr_accessible :login, :email, :password, :password_confirmation
 
-  validates_length_of       :login,                 :within => 3..40, :too_short => "A username must be at least 2 characters long", :too_long => "A username must be less than 40 characters"
+  validates_length_of       :login,    :within => 3..40, :too_short => "A username must be at least 2 characters long", :too_long => "A username must be less than 40 characters"
   validates_presence_of     :login
-  validates_uniqueness_of   :login,        :case_sensitive => false, :message => "That username has already been taken."
-  validates_format_of       :login, :with => /^[a-zA-Z]\w+$/, :message  => 'A username should only comprise letters and/or numbers'
+  validates_uniqueness_of   :login,    :case_sensitive => false, :message => "That username has already been taken."
+  validates_format_of       :login,    :with => /^[a-zA-Z]\w+$/, :message  => 'A username should only comprise letters and/or numbers'
   validates_format_of       :email,    :with => /(^([^@\s]+)@((?:[-_a-z0-9]+\.)+[a-z]{2,})$)|(^$)/i,:message => "Please supply a valid email address e.g. bob@example.com"
   validates_presence_of     :email
-  validates_uniqueness_of   :email,        :case_sensitive => false, :message => "That email address is associated with another account"
-  validates_length_of       :email,                 :within => 6..100
-  validates_confirmation_of :password,                                :if => :password_required?, :message => "Password and password confirmation don't match."
-  validates_length_of       :password,              :within => 6..40, :if => :password_required?, :too_short => "Password must be more than 6 characters long.", :too_long => "Password must be lass than 40 characters long."
-  validates_presence_of     :password,                                :if => :password_required?
-  validates_presence_of     :password_confirmation,                   :if => :password_required?
+  validates_uniqueness_of   :email,    :case_sensitive => false, :message => "That email address is associated with another account"
+  validates_length_of       :email,    :within => 6..100
+  validates_confirmation_of :password, :if => :password_required?, :message => "Password and password confirmation don't match."
+  validates_length_of       :password, :within => 6..40, :if => :password_required?, :too_short => "Password must be more than 6 characters long.", :too_long => "Password must be lass than 40 characters long."
+  validates_presence_of     :password, :if => :password_required?
+  validates_presence_of     :password_confirmation, :if => :password_required?
 
   before_save :encrypt_password
   before_create :make_activation_code
@@ -214,17 +223,7 @@ class User < ActiveRecord::Base
   def make_password_reset_code
      self.password_reset_code = Digest::SHA1.hexdigest(Time.now.to_s.split(//).sort_by {rand}.join)
   end
-  
-  private # ----------------------------
 
-  def self.find_customer_all
-  	find(:all, :order => "login")
-  end
-  
-  def self.find_order
-  	find(:all, :order => "name")
-  end
-  
 end
 
 #
