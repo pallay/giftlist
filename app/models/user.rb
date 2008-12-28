@@ -2,6 +2,12 @@ require 'digest/sha1'
 
 class User < ActiveRecord::Base
 
+  include Authentication
+  include Authentication::ByPassword
+  include Authentication::ByCookieToken
+
+  after_create :send_account_activated_mail
+
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 
@@ -9,19 +15,18 @@ class User < ActiveRecord::Base
   # (anything else a user can change should be added here)
   attr_accessible :login, :email, :password, :password_confirmation
 
-  validates_confirmation_of :password,                                :if => :password_required?
-  validates_format_of       :email,    :with => /(^([^@\s]+)@((?:[-_a-z0-9]+\.)+[a-z]{2,})$)|(^$)/i
-  validates_length_of       :password,              :within => 4..40, :if => :password_required?
-  validates_length_of       :login,                 :within => 3..40
-  validates_length_of       :email,                 :within => 3..100
-	#validates_length_of       :first_name,	          :within => 2..30
-	#validates_length_of       :last_name,		          :within => 2..30
-  validates_presence_of     :login, :email
+  validates_length_of       :login,                 :within => 3..40, :too_short => "A username must be at least 2 characters long", :too_long => "A username must be less than 40 characters"
+  validates_presence_of     :login
+  validates_uniqueness_of   :login,        :case_sensitive => false, :message => "That username has already been taken."
+  validates_format_of       :login, :with => /^[a-zA-Z]\w+$/, :message  => 'A username should only comprise letters and/or numbers'
+  validates_format_of       :email,    :with => /(^([^@\s]+)@((?:[-_a-z0-9]+\.)+[a-z]{2,})$)|(^$)/i,:message => "Please supply a valid email address e.g. bob@example.com"
+  validates_presence_of     :email
+  validates_uniqueness_of   :email,        :case_sensitive => false, :message => "That email address is associated with another account"
+  validates_length_of       :email,                 :within => 6..100
+  validates_confirmation_of :password,                                :if => :password_required?, :message => "Password and password confirmation don't match."
+  validates_length_of       :password,              :within => 6..40, :if => :password_required?, :too_short => "Password must be more than 6 characters long.", :too_long => "Password must be lass than 40 characters long."
   validates_presence_of     :password,                                :if => :password_required?
   validates_presence_of     :password_confirmation,                   :if => :password_required?
-	#validates_presence_of     :first_name
-	#validates_presence_of     :last_name
- # validates_uniqueness_of   :login, :email,        :case_sensitive => false
 
   before_save :encrypt_password
   before_create :make_activation_code
@@ -88,40 +93,41 @@ class User < ActiveRecord::Base
 		  ORDER BY	  `line_items`.`position` ASC", customer_id, order_id
 		])
   end
-  
-  def activate
-    @activated = true # sets flag and state to pending
-    self.update_attribute(:activated_at, Time.now.utc)
-    self.update_attribute(:activation_code, nil)
-  end
 
-  def active?
-    activation_code.nil? # If activation code exists, they've not activated yet
-  end
+  after_save :stop_subsequently_password_required_requests
 
-  def pending?
-    @activated # Returns true if user has just been activated.
-  end
-
-  # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
-  def self.authenticate(username, password)
-    user = find(:first, :conditions => ['login = ? and activated_at IS NOT NULL', username]) # need to get the salt
+  def self.authenticate(login, password)
+    user = find :first, :conditions => {:login => login}
     user && user.authenticated?(password) ? user : nil
   end
 
-  # Encrypts some data with the salt.
-  def self.encrypt(password, salt)
-    Digest::SHA1.hexdigest("--#{salt}--#{password}--")
+  def login=(login)
+    self.write_attribute(:login, login.downcase)
   end
 
-  # Encrypts the password with the user salt
-  def encrypt(password)
-    self.class.encrypt(password, salt)
+  def validate_password_reset
+    self.password_reset_code_confirmation? ? validate_password_reset_code : validate_current_password
   end
 
-  def authenticated?(password)
-    crypted_password == encrypt(password)
+  def validate_password_reset_code
+    errors.add :password_reset_code, 'The password reset code is incorrect. Did you follow the email link?' unless (self.password_reset_code_confirmation == self.password_reset_code)
   end
+    
+  def validate_current_password
+    # !! console users can use user.save(false) to skip the check
+    errors.add :current_password, 'Your current password is incorrect.' if (self.current_password && !authenticated?(self.current_password))
+  end
+
+  # user has forgotten their password so make a reset_code in db
+  def forgot_password
+    self.make_password_reset_code
+    UserMailer.deliver_forgot_password(self)
+  end
+  
+  def reset_password
+    self.update_attribute(:password_reset_code, nil)
+    UserMailer.deliver_reset_password(self)
+  end 
 
   def remember_token?
     remember_token_expires_at && Time.now.utc < remember_token_expires_at 
@@ -149,27 +155,6 @@ class User < ActiveRecord::Base
     self.remember_token            = nil
     save(false)
   end
-
-  def forgot_password
-    @forgotten_password = true
-    self.make_password_reset_code
-  end
-  
-  def reset_password
-    # Updates :password_reset_code before setting the :reset_password flag
-    # to avoid duplicate email notifications.
-    update_attribute(:password_reset_code, nil)
-    @reset_password = true
-  end 
-
-  # Used in user_observer
-  def recently_forgot_password?
-    @forgotten_password
-  end
-  
-  def recently_reset_password?
-    @reset_password
-  end
  
   def self.find_email_for_forgotten_password(email)
     find :first, :conditions => ['email = ? and activation_code IS NULL', email]
@@ -182,8 +167,34 @@ class User < ActiveRecord::Base
   def formatted_name
     #{first_name} + #{last_name}
   end
-  
+
+  def send_account_activated_mail
+    UserMailer.deliver_account_activated(self)
+  end
+
   protected #------------------------------------------------
+
+  def make_password_reset_code
+    self.password_reset_code = self.class.make_token
+  end
+
+  # No encrypted password in db OR a new password has been supplied
+  def password_required?
+    crypted_password.blank? || !password.blank?
+  end
+
+  # after_save: make sure subsequent saves don't trigger password_required?
+  def stop_subsequently_password_required_requests
+    self.password = nil if password_required?
+  end
+
+  def active?
+    activation_code.nil? # If activation code exists, they've not activated yet
+  end
+
+  def pending?
+    @activated # Returns true if user has just been activated.
+  end
 
   # before filter 
   def encrypt_password
@@ -215,3 +226,16 @@ class User < ActiveRecord::Base
   end
   
 end
+
+#
+#   has_many :user_logs
+# 
+#   named_scope :activity_within, lambda { |time|
+#     {:conditions => ['user_logs.created_at > ?', Time.now - time],
+#      :select => 'users.id, users.login',
+#      :joins => 'INNER JOIN user_logs ON user_logs.user_id = users.id',
+#      :group => 'users.id'}
+#     }
+#   attr_accessor :current_password, :password_reset_code_confirmation  
+#
+# end
