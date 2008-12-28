@@ -19,7 +19,7 @@ class AccountsController < ApplicationController
     flash[:error] = "Activation code not found. Please try creating a new account."
     redirect_to new_user_path
   rescue User::AlreadyActivated
-    flash[:error] = "Oops. You've already activated you're account. You can log in below."
+    flash[:error] = "Oops. You've already activated your account. You can log in below."
     redirect_to login_path
   end
 
