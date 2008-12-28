@@ -1,0 +1,35 @@
+customer_cancelled:
+  id: 1
+  value: customer cancelled
+
+administrator_cancelled:
+  id: 2
+  value: administrator cancelled
+
+open:
+  id: 3
+  value: open
+
+awaiting_payment:
+  id: 4
+  value: awaiting payment
+
+payment_received:
+  id: 5
+  value: payment received
+
+payment_failed:
+  id: 6
+  value: payment failed
+
+awaiting_delivery:
+  id: 7
+  value: awaiting delivery
+
+awaiting_delivery:
+  id: 8
+  value: completed
+
+archived:
+  id: 9
+  value: archived

@@ -1,0 +1,32 @@
+<div id="login-screen">
+	<h2><%= @page_title %></h2>
+	<p>Enter your login and password details to log into your Shaadi Gift List.</p>
+	<div id="login-form">
+		<% form_tag sessions_path do %>
+			<p><label for="username">Username</label><br/>
+			<%= text_field_tag 'login' %></p>
+			<p><label for="password">Password</label><br />
+			<%= password_field_tag 'password' %></p>
+			<p><label for="remember_me">Remember me (for 2 weeks):</label>
+			<%= check_box_tag 'remember_me' %></p>
+			<p><%= submit_tag 'Log in' %> <%= link_to 'Forgot Password', forgot_password_path %></p>
+		<% end %>
+	</div>
+	<div id="login-desc">
+		<h3>Why am I being asked for my password?</h3>
+		<ul>
+			<li>
+				<p>To protect your account, you need to confirm your password periodically.</p>
+	     	<p>You can adjust the length of time before password prompting by ticking the box.</p>
+				<p>For your security, we will always prompt for your password when accessing sensitive personal information, like your Shaadi Gift List.</p>
+	      </li>
+				<% if logged_in? and @current_user %>
+					<li>
+		      	<p>Only one account can be signed in at a time.
+		      	If you're not "<%= current_user.first_name %> & <%= current_user.last_name %>" sign in with your own ID.</p>
+		    	</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>

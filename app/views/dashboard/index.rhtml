@@ -1,0 +1,51 @@
+<div id="dashboard_home">
+	<% if @user.first_name %>
+		<h3>Welcome to your Shaadi Gift List, <%= @user.first_name.capitalize %>.</h3>
+	<% else %>
+		<h3>Welcome back to your Shaadi Gift List.</h3>
+	<% end %>
+	<br/>
+		<%= image_tag @user_image, {:alt => "customer-image"} %><br/>
+	<br/>
+	<div class="customer-number">Your customer number: <%= @user_order.customer_number %>.</div>
+	<br/>
+	<% if @date_diff < 0 -%>
+		Your wedding was on <%= @wedding_date -%>. Congratulations!
+	<% elsif @date_diff > 0 -%>
+		Your wedding is on <%= @wedding_date -%>. That means there is only <strong> <%= @date_diff -%> <%= 'day'.pluralize -%></strong> to the big day!
+	<% else %>
+		Your wedding is today. Congratulations! Your gifts will arrive soon.
+	<% end -%>
+	<br/>
+	<br/>
+
+	<h3>Your Shaadi Gift List</h3>
+
+	<div id="bridegroom-giftlist">
+		<ul id="giftlist_products_list">
+			<% unless @giftlist_products.empty? %>
+				<% @giftlist_products.each do |product| -%>
+					<li id="item_<%= product.id %>">
+						<span class="priority"><%= product.position %></span>
+						<%= link_to(image_tag(product.image_url, :size => "60x60"), {:controller => "dashboard", :action => "show_item", :id => product.id}) %>
+						<h3><span class="name"> <%= link_to product.name , :action => :show_item, :id => product.id %></span></h3><br>
+						<span class="quantity">
+							There is <strong><%= product.quantity %></strong> of these items in your Shaadi Gift List at
+							priority: <strong><%= product.position %></strong>
+						</span><br/>
+						<span class="description">Description: <%= truncate(product.description, 100) %> <em>more</em> </span><br/>
+						<span class="price">Price: <%= number_to_pound(product.price) %></span> <br/>
+						<%= link_to 'Remove item', :action => :remove_item, :id => product.id -%>
+					</li>
+				<% end -%>
+			<% else %>
+				<p><%= "Your Shaadi Gift List is currently empty. Please add some items by click on 'Add to your Gift List'." %></p>
+			<% end %>
+		</ul>
+	</div>
+
+	<%= sortable_element 'giftlist_products_list', :url => {:action => "sort", :id => @giftlists_products}, :complete => visual_effect(:highlight, 'bridegroom-giftlist', :duration => 1, :queue => 'front'), :update => 'dashboard_home' %>
+
+	<%= button_to 'Add to your Gift List', :action => :amend -%>
+	<%= button_to 'Edit your details', :action => :edit_details -%>
+</div>

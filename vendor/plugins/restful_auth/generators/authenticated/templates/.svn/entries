@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="6"
+   name=""
+   committed-date="2008-03-10T18:18:58.959200Z"
+   url="file:///usr/local/svn/rockyrepo/trunk/vendor/plugins/restful_auth/generators/authenticated/templates"
+   last-author="root"
+   kind="dir"
+   uuid="944c7a38-9c47-0410-a5db-db689c78549c"
+   repos="file:///usr/local/svn/rockyrepo"
+   revision="6"/>
+<entry
+   committed-rev="6"
+   name="signup.html.erb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="526370cdc37602043e774b40484d09fc"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="6"
+   name="unit_test.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="cf4581144ba0d505452226d67998770c"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="1"
+   name="helper.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-04T13:21:18.099878Z"
+   checksum="10f35a628be9c39f716599d409c19fb7"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="6"
+   name="authenticated_test_helper.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="176db5e321a4414fb97421996d737fb5"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="6"
+   name="login.html.erb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="55a0412c8f5db49c081fbb90f0672578"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="6"
+   name="model_functional_test.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="cf8dee788763aecdaa228c8bbe4ca1ac"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="6"
+   name="signup_notification.html.erb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="7fa4e07ebc732c596fe6d41c03c36cd5"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="6"
+   name="controller.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="04524046242a440a40e9abb941cbc129"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="6"
+   name="authenticated_system.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="6212f044c0be25ee28929fba3e561ad4"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="1"
+   name="observer.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-04T13:21:18.099878Z"
+   checksum="620ccb743c1ff6a648027a6437144a7a"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="6"
+   name="unit_spec.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="fb55c83ce483b659695fe96d8ad6255c"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="6"
+   name="migration.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="e7ed653ebcf77811ef2cc219d728d12c"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="6"
+   name="model_functional_spec.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="8528b904464ccdb63166f6310e3c2fd8"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="1"
+   name="model_helper.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-04T13:21:18.099878Z"
+   checksum="abe40f2c22c20f496cfd6f9195fa7c7a"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="6"
+   name="model.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="ec1385fb8d6c3b1222c8705e802b1e98"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="6"
+   name="functional_test.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="a12861981d97076dfcccbc3a03204663"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="1"
+   name="model_controller.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-04T13:21:18.099878Z"
+   checksum="fefd13404d53fd66930ba18df35f3372"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="6"
+   name="fixtures.yml"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="e7b4bee6bb9a5b6adb990ba5558ea724"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="1"
+   name="mailer_test.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-04T13:21:18.099878Z"
+   checksum="3cb48065e2cfd566a5050a928aa6e552"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="1"
+   name="mailer.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-04T13:21:18.099878Z"
+   checksum="acd9c98874d76cf1728ca79d8987dc0c"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="6"
+   name="activation.html.erb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="3ad65d8f6d2f44ef9b6cdf48d6e2ba61"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="6"
+   name="functional_spec.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="2b7b2c5442a6148b8b125859484e832a"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+</wc-entries>

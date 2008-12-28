@@ -1,0 +1,12 @@
+<% if cart_item == @current_item %>
+	<tr id="current_item">
+<% else %>
+	<tr>
+<% end %>
+<!--<tr id="<%= "cart-row-#{cart_item.product.id.to_s}" %>">-->
+	<td><%= cart_item.quantity %>&times;</td>
+	<td><%= truncate(h(cart_item.name), 15) %></td>
+	<td class="item-price"><%= number_to_pound(cart_item.price) %></td>
+	<td><%= remove_item_link3("x", cart_item.product.id) %></td>
+	<td><%#= link_to "x", :action => :remove_from_cart, :id => cart_item.product.id %></td>
+</tr>

@@ -1,0 +1,9 @@
+page.replace_html "guestcart", :partial => "guestcart"
+page[:guestcart].visual_effect :blind_down if session[:guestcart].items.sum{1} == 1
+
+#page[:current_item].visual_effect :highlight, :duration => 0.5, :startcolor => "#8D8684", :endcolor => "#D5BE51"
+#page.visual_effect :highlight, "item_#{@current_item.line_item_id}", :duration => 0.5
+
+##page.visual_effect :fade, "item_#{@added_item.line_item_id}", :duration => 0.5
+#page.hide "item_#{@added_item.line_item_id}"
+#page[:current_item].visual_effect :highlight, :startcolor => "#8D8684", :endcolor => "#D5BE51"

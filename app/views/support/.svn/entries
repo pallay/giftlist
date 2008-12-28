@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="6"
+   name=""
+   committed-date="2008-03-10T18:18:58.959200Z"
+   url="file:///usr/local/svn/rockyrepo/trunk/app/views/support"
+   last-author="root"
+   kind="dir"
+   uuid="944c7a38-9c47-0410-a5db-db689c78549c"
+   repos="file:///usr/local/svn/rockyrepo"
+   revision="6"/>
+<entry
+   committed-rev="6"
+   name="account_creation_faq.html.erb"
+   text-time="2008-03-11T15:46:03.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="1dcd7a8c261250f4fdf700903a9a997e"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:03.000000Z"/>
+</wc-entries>

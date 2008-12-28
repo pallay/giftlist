@@ -1,0 +1,10 @@
+<fieldset>
+	<a href="#" onclick="Effect.BlindUp('advanced-search'); return false;" style="float:right">Cancel</a>
+	<% form_tag({:controller => 'giftlists', :action => 'advanced_search'}, {:name => 'advanced-search-form', :id => 'advanced-search-form'}) do -%>
+		<%= image_tag "/images/misc/template-new-cutting2_04.gif", :align => "left" %>
+		<%= text_field :wedding_venue_search, params[:wedding_venue_search], :class => "text", :id => "wedding-search", :value => "Enter the Wedding Venue", :onfocus => "this.value = '';", :onblur => "this.value = this.value || this.defaultValue;" %><br/>
+		<br/>
+		<%= date_select :wedding_date_search, params[:wedding_date_search], :class => "date", :value => "Enter a Gift List Number", :onfocus => "value=''" %><br/>
+		<%= image_submit_tag "/images/buttons/button-search.gif", {:class => 'search-image-button', :alt => 'advanced search button image', :width => '70', :height => '25', :title => 'Click here if you do not know the Gift List Number', :name => nil, :controller => 'giftlists', :action => 'advanced_search'} %>
+	<% end -%>
+</fieldset>

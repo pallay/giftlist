@@ -1,0 +1,35 @@
+<div id="guestcart_notice">
+	<% if flash[:guestcart_notice] %>
+		<%= flash[:guestcart_notice] %>
+	<% end %>
+</div>
+
+<% unless session[:guestcart].nil? %>
+	<div class="cart-title"><h3>Your Gifts For <em class="bridegroom-name"><%= session[:bride_name] %></em> & <em class="bridegroom-name"><%= session[:groom_name] %></em></h3>
+
+	<form name="paypalform" target="paypal" action="https://www.sandbox.paypal.co.uk/cgi-bin/webscr" method="post">
+		<%= hidden_field_tag "cmd", "_cart" %>
+		<%= hidden_field_tag "upload", "1" %>
+		<%= hidden_field_tag "business", root_url %>
+
+		<table>
+			<% session[:guestcart].items.each do |item| %>
+			<ul>
+				<li id="guestcart_item_<%= item.line_item_id %>">
+					<%= render :partial => "item", :object => item %>
+					<%= render :partial => "paypal_item", :collection => session[:guestcart].items %>
+				</li>
+			</ul>
+			<% end %>
+			<tr class="total-line">
+				<td>Total</td>
+				<td class="total-cell"><%= number_to_pound(session[:guestcart].total_price) %> </p>
+			</tr>
+		</table>
+
+		<%= hidden_field_tag "return", "www.shaadigiftlist.com" %>
+		<%= submit_tag("Buy with PayPal", :class => "submit") unless controller.controller_name == ('guest' || 'guestcart') %>
+	</form>
+
+	<%= button_to "Proceed to Checkout", :controller => :checkout unless controller.controller_name == 'checkout' %>
+<% end %>

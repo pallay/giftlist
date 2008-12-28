@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+				"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	
+	<title>Shaadi Gift List</title>
+	<meta name = "description" content = "Shaadi Gift List Site - coming out of beta soon!">
+	<meta name = "copyright" content = "Copyright (c) 2008 Codecrafters">
+	<meta name = "author" content = "Pallay Raunu">
+  <LINK REL="SHORTCUT ICON" HREF="/favicon.ico">
+  <%= stylesheet_link_tag "autosuggest_inquisitor", "shaadigiftlist-new", "lightWindow", :media => "all" %>
+  <%= javascript_include_tag "prototype", "scriptaculous", "lightWindow", "validation", :cache => true %>
+
+	<script type="text/javascript" language="javascript">
+		function checkForm(e){
+			var outStr = "";
+			if ($('customer_first_name').value == ""){
+				outStr += "- Ensure your first name is entered.\n";
+			}
+			if ($('customer_last_name').value == ""){
+				outStr += "- Ensure your last name is entered.\n";
+			}
+			if ($('giftmessage_message').value == ""){
+				//ask are they sure they dont want a gift message
+			}
+			if ($('customer_email').value == ""){
+				outStr += "- Ensure you enter your email address.\n";
+			}
+			else if (!emailCheck($('customer_email').value)){
+				outStr += "- Ensure your email address is correct.\n";
+			}
+			if (outStr != "") {
+				alert("You seem to have made some mistakes!\n\n" + outStr);			
+				return false;
+			}
+			return true;
+		}
+		var loadingImg = "<img src='\images/loading.gif' alt='loading' width='32' height='32'>";
+			function save(e){
+				if (checkForm(e)){
+					var originalAction = e.action;
+					var url = '/checkout/placing_order/';
+					//var pars = 'customer[first_name]='+escape($F('customer[first_name]'))+'&customer[last_name]='+escape($F('customer[last_name]'))+'&customer[email]='+escape($F('customer[email]'))+'&customer[contact_number]='+escape($F('customer[contact_number]'))+'&giftmessage[message]='+escape($F('giftmessage[message]'));
+					var pars = '?customer[first_name]='+escape($('customer_first_name').value)+'&customer[last_name]='+escape($('customer_last_name').value)+'&customer[email]='+escape($('customer_email').value)+'&customer[contact_number]='+escape($('customer_contact_number').value)+'&giftmessage[message]='+escape($('giftmessage_message').value);
+					//var target = 'notice';
+					e.action = '';
+					//$(target).innerHTML = "Placing your order...";
+					var success = false;
+					$('notice').innerHTML = (loadingImg + "<b>Saving your purchase. Please wait to be redirected to PayPal to complete the transaction.</b>");
+					new Effect.Highlight('notice', {duration:2.0});
+				 	var update = new Ajax.Request(
+						url,
+						{
+							method: 'get',
+							asynchronous: false,
+							parameters: pars,
+							on404: function(request){alert("The server could not save your gift purchases because the action could not be found.");},
+				 			on500: function(request){alert("The server could not complete this transaction. We apologise for this inconvenience.");},
+							onLoading: loading,
+							onFailure: failedToSave,
+							onException: failedToSave,
+							onSuccess: 	function(request){
+						  	if (request.responseText == "OK"){
+									alert("You will now be redirected to PayPal to complete this transaction.");
+									e.action = originalAction;
+						     	success = true;
+								}
+							}
+						}
+					);
+					if (success){return true;}
+			 	}
+			 	return false;
+			}
+
+		function loading(request){
+			//alert("Hiya");
+			$('notice').innerHTML = (loadingImg + "<b>Saving your purchase, please wait to be redirected to PayPal to complete the transaction.</b>");
+			new Effect.Highlight('notice', {duration:3.0});
+		}
+
+		function failedToSave(request){
+			//#alert('Sorry, there was an error processing your gifts. Please email the website support team at info@shaadigiftlist.com');
+			failed();
+		}
+
+		function failed(){
+			alert("Your gifts could not be purchased. Please contact the website admin team via info@shaadigiftlist.com. We apologise for this inconvenience.");
+			$('notice').innerHTML = (loadingImg + "<b>Your gifts could not be purchased. Please contact the website admin team via info@shaadigiftlist.com. We apologise for this inconvenience.</b>");
+			new Effect.Highlight('notice', {duration: 1.0});
+		}
+
+		function success(request){
+			//alert("Done it");	
+		}
+
+	function collapseAll(objs) {
+		var i;
+		for (i=0; i < objs.length; i++ ) {
+			objs[i].style.display = 'none';
+		}
+	}
+
+	function pageLoad() {
+		collapseAll($('paypal-form'));
+	}
+
+	window.onload = pageLoad;
+	</script>
+
+	<style type="text/css">img {behavior: url("pngbehavior.htc");}</style>
+	  <!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="ie.css"/><![endif]-->
+</head>
+
+<body>
+
+<div id="top-section">
+	<div id="main-menu">
+		<ul>
+			<li><%= link_to 'Log In', login_path, :class => 'login' %></li>
+			<li><%= link_to 'About us', about_path %></li>
+			<li><%= link_to 'Contact us', contact_path %></li>
+		</ul>
+	</div>
+	<div id="aesthetic"><!-- FOR YELLOW BORDER -->
+		<div id="header">
+			<h1><span>Shaadi Gift List</span></h1>
+			<% link_to root_url %>
+		</div>
+		<div id="page">
+    	<div id="more-links" class="top">
+      	<div class="container">
+        	<ul>
+	       		<li><div class="left"></div><%= link_to 'Home', root_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'Log In', login_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'Log Out', logout_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'Search', giftlists_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'And another link' %><div class="right"></div></li>
+        	</ul>
+      	</div>
+			</div>
+			<!--<div id="left-column"></div>--><!-- End left-column -->
+			<div id="middle-column" class="listing">
+				<h2 class="welcome-to"><%= @page_title %></h2>
+				<%= render :partial => 'layouts/partials/notice' %>
+				<%= yield %>
+			</div> <!-- End Middle-Column -->
+			<div id="right-column">
+				<div>
+				</div>
+			</div> <!-- End right-column -->
+			<div class="breaker"></div>
+		</div><!-- End Page -->
+ 		<div class="breaker"></div>
+		<div id="bottom-section">
+			<div id="wrapper">
+				<div id="latest-weddings">
+					<%= render :partial => 'layouts/partials/recently_joined_customers'%>
+				</div>
+				<div id="disclaimer">
+					<h3><span><strong>Disclaimer</strong></span></h3>
+					<p>We do not routinely disclose our sources and seek to protect the source of any information we receive before disclosing intelligence to our partners (for example, the police, local ...</p>
+				</div>
+				<div class="breaker"></div>
+			</div>
+		</div>
+		<div class="breaker"></div>
+		<div id="footer">
+			<ul>
+				<li>Copyright Shaadi Gift List &copy; 2008 | </li>
+				<li><%= link_to 'An advert goes here' %> | </li>
+				<li class="last"><%= link_to 'Another Link' %> | </li>
+			</ul>
+			<div class="breaker"></div>
+		</div>
+	</div><!-- FOR YELLOW BORDER -->
+</div><!-- End top-section -->
+<%= render :partial => 'layouts/partials/debug' %>
+</body>
+</html>

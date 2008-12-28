@@ -1,0 +1,8 @@
+<%#= render :partial => "giftlistnumber_search_box" %>
+<% if @giftlistnumber -%>
+	<% if @giftlistnumber.size > 0 -%>
+		Your search for number "<%= params[:order][:customer_number] %>" found the happy couple: <br/>
+		<%= render(:partial => "giftlistnumberresults") %>
+	<% end -%>
+<% end -%>
+<%= button_to "Search Again", :controller => :home, :action => :giftlistnumber_search %>

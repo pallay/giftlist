@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="6"
+   name=""
+   committed-date="2008-03-10T18:18:58.959200Z"
+   url="file:///usr/local/svn/rockyrepo/trunk/app/views/users"
+   last-author="root"
+   kind="dir"
+   uuid="944c7a38-9c47-0410-a5db-db689c78549c"
+   repos="file:///usr/local/svn/rockyrepo"
+   revision="6"/>
+<entry
+   committed-rev="1"
+   name="edit.html.erb"
+   text-time="2008-03-11T15:46:02.000000Z"
+   committed-date="2008-03-04T13:21:18.099878Z"
+   checksum="b93ce01995e2e3a7a412c31f7a052c53"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:02.000000Z"/>
+<entry
+   committed-rev="1"
+   name="index.html.erb"
+   text-time="2008-03-11T15:46:02.000000Z"
+   committed-date="2008-03-04T13:21:18.099878Z"
+   checksum="ae574656d17e89fd4d81bafa2e2535ec"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:02.000000Z"/>
+<entry
+   committed-rev="6"
+   name="new.html.erb"
+   text-time="2008-03-11T15:46:02.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="112f5f636ef7ee6281cb9c648c0951db"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:02.000000Z"/>
+<entry
+   committed-rev="6"
+   name="_user.html.erb"
+   text-time="2008-03-11T15:46:02.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="cb93a3df9e73d2b4e6f80b432afa1dc1"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:02.000000Z"/>
+<entry
+   committed-rev="6"
+   name="show.html.erb"
+   text-time="2008-03-11T15:46:02.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="bac83473d3cf615a631090829d483d88"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:02.000000Z"/>
+</wc-entries>

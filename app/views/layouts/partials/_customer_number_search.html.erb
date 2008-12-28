@@ -1,0 +1,7 @@
+<fieldset class="search">
+	<% form_tag({:controller => 'giftlists', :action => 'search'}, {:name => 'custnum-search-form', :id => 'custnum-search-form'}) do -%>
+		<%= image_tag "/images/misc/template-new-cutting2_04.gif", :align => "left" %>
+		<%= text_field :customer_number_search, params[:customer_number_search], :class => "text", :id => 'custnumber-search-input', :type => "text", :value => "Gift List Number", :onfocus => "this.value = '';", :onblur => "this.value = this.value || this.defaultValue;", :size => 15 %>
+		<%= image_submit_tag "/images/buttons/button-search.gif", {:id => 'advanced-search-image', :alt => 'search button image', :width => '70', :height => '25', :title => 'Click to search for a Gift List', :name => nil} %>
+	<% end -%>
+</fieldset>

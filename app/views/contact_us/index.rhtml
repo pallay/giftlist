@@ -1,0 +1,29 @@
+<div class="contactus-form">
+	<h2>Contact Us</h2>
+	<p>If you have any questions, comments, or feedback please use the form below to contact us. And we will be in touch as soon as possible.</p>
+	<div class="contactus-form-part1">
+		<fieldset>
+			<% form_for :contact_us, :url => {:action => :save} do |form| %>
+				<%= error_messages_for :contact_us %>
+    		<% fields_for :customer do |form| %>
+					<label for="name">Your Name*:</label><br/>
+					<%= form.text_field :name, :size => 30 %><br/>						
+					<label for="email">Email*:</label><br/>
+        	<%= form.text_field :email, :size => 30 %><br/>
+					<label for="contact_number">Your Contact Number*:</label><br/>
+        	<%= form.text_field :contact_number, :size => 30 %><br/>
+					<label for="current_member">Are you currently a member of Shaadi Gift List*?</label><br/>
+        	<%= form.select(:current_member, {"Yes ", "No "}) %><br/>
+					<label for="nature_of_enquiry">Nature of Enquiry*:</label><br/>
+       		<%= form.select(:nature_of_enquiry, "Please Select") %><br/>
+	</div>
+	<div class="contactus-form-part2">
+      		<label for="text">Message:</label><br/>
+        	<%= form.text_area :message, :cols => 30, :rows => 10 %><br/>
+ 				<% end %>
+				<p>* Required field</p>
+				<%= submit_tag "Send", :size => '100px' %>
+			<% end %>
+		</fieldset>
+	</div>
+</div>

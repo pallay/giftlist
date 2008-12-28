@@ -1,0 +1,21 @@
+/* CSS Document */
+
+#Example a {
+     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='your_png_image.png',sizingMethod='scale');
+}
+
+#bottom-section h3 {
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:1.6em;
+	font-weight:bold;
+	letter-spacing:-1px;
+	color:red;
+	/*background: url(../images/misc/template-new-cutting4_32.png) no-repeat bottom left;*/
+	padding-left:42px;
+	height:32px;
+	display:block;
+	
+     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader (src='../images/misc/template-new-cutting4_32.png',sizingMethod='scale');	
+}
+#bottom-section h3 span {background:url(../images/misc/template-new-cutting5_33.png) no-repeat bottom right;	 padding-left:10px; padding-right:40px;
+	height:32px;}

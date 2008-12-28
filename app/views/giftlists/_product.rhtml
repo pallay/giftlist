@@ -1,0 +1,11 @@
+<div class="entry">
+	<div class="name"><h3><%= link_to h(product.name), {:controller => "products", :action => "show", :id => product.id}  %></h3></div>
+  <%= image_tag product.image_url, :size => "75x75", :id => "product_#{product.id}", :alt => product.name, :class => "products", :title => 'Drag this image to the right hand side to add to your Gift List' %><br/>
+	<%= draggable_element "product_#{product.id}", :revert => true %>
+	Category: <%= product.category %><br/>
+	Product Tags: <%= product.tag_list.join(" ") %><br/>
+	<div class="price">Price: <%= number_to_pound(product.price) %></div>
+	<% form_remote_tag :url => {:action => :add_product, :id => product} do %>
+		<%= image_submit_tag("/images/buttons/purchase.png", :height => 25, :title => "Click to add to your Gift List", :alt => "add-to-cart-image", :class => 'purchase-link') %>
+	<% end %>
+</div>

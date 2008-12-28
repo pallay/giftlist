@@ -1,0 +1,13 @@
+<ul class="customer_numbers">
+<% for customer in @giftlistnumber do -%>
+  <li class="customer">
+    <div class="image">
+    <img src="/images/cookie/<%#= cookie.id.to_s[-1,1] %>.jpg"/>
+    </div>
+    <div class="name"><%=h customer.first_name.capitalize %></div>
+    <div class="flavor">
+      <span class="informal"><%=h customer.customer_number %></span>
+    </div>
+  </li>
+<% end -%>
+</ul>

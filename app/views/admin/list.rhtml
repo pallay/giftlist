@@ -1,0 +1,90 @@
+<div id="product-list">
+	<h1>List of all products</h1>
+<!--<%#-->
+	<!--TODO: Can do this better using:-->
+			<!--<table>-->
+			 	<!--<tr>-->
+			 		<!--for column in Product.content_columns-->
+				 		<!--<th>column.human_name<th/>-->
+			 		<!--end-->
+			 	<!--<tr/>-->
+			 	<!---->
+			 	<!--for products in @products-->
+			 	<!--<tr>-->
+			 		<!--for columns in Product.content_columns-->
+			 			<!--<td>  h(product.send(column.name)  </td>-->
+			 		<!--end-->
+			 		<!--<td> link_to 'Show', :action => 'show', :id => product </td>-->
+			 	<!--</tr>-->
+		 		<!--end-->
+			 <!--</table> -->
+	<!--N.B. content_columns is a class method. It tells us that Product has two content columns of type-->
+		 <!--string. So we should be able to loop through the list of column names and-->
+		 <!--write the column headings.-->
+		 <!---->
+<!--%>-->
+
+	<table cellpadding="5" cellspacing="0">
+		<tr>
+			<td><p align="left"><b>Image</b></td>
+			<td><p align="left"><b>Category</b></td>
+			<td><p align="left"><b>Title</b></td>
+			<td><p align="left"><b>Description</b></td>
+			<td><p align="left"><b>Tags</b></td>
+			<td><p align="left"><b>Unit Cost</b></td>
+			<td><p align="left"><b>Markup %</b></td>
+			<td><p align="left"><b>Markup Amount</b></td>
+			<td><p align="left"><b>Selling Price</b></td>
+		</tr>
+
+	<% for product in @products %>
+		<tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>">		
+			<td>
+				<img class="list-image" src="<%= product.image_url %>"/>
+			</td>
+			<td width="10%">
+				<span class="list-category"><%= h(product.category) %></span><br/>
+			</td>
+			<td width="15%">
+				<span class="list-name"><%= h(product.name) %></span><br/>
+			</td>
+			<td width="30%">
+				<span class="list-description"><%= truncate(h(product.description),50) %></span><br/>
+			</td>
+    		<td width="10%">
+				<span class="list-sku">	<%= product.tag_names.join(" ") %></span><br/>
+			</td>
+    		<td width="5%">
+				<span class="list-cost"><%= number_to_currency(product.unit_cost, :unit => "&pound;", :seperator => ",", :delimiter => "") %></span><br/>
+			</td>
+			<td width="5%">
+				<span class="list-markup"><%= number_to_percentage(product.markup_percentage, {:precision => 2}) %></span><br/>
+			</td>
+			<td width="5%">
+				<span class="list-markup_amount"><%= number_to_currency(product.markup_amount, :unit => "&pound;", :seperator => ",", :delimiter => "") %></span><br/>
+			</td>
+			<td width="5%">
+				<span class="list-price"><%= number_to_currency(product.price, :unit => "&pound;", :seperator => ",", :delimiter => "") %></span><br/>
+			</td>
+			<td class="list-actions">
+				<%= link_to 'Show', :action => 'show', :id => product %><br/>
+				<%= link_to 'Edit', :action => 'edit', :id => product %><br/>
+				<%= link_to 'Destroy', { :action  => 'destroy', :id => product },
+																 :confirm => "Are you sure?",
+																 :method  => :post %>
+			</td>
+		</tr>
+	<% end %>
+	</table>
+</div>
+
+<%= if @product_pages.current.previous
+		link_to("Previous page", { :page => @product_pages.current.previous })
+	end
+%>
+<%= if @product_pages.current.next
+		link_to("Next page", { :page => @product_pages.current.next } )
+	end
+%>
+<br/>
+<%= link_to 'Add new product', :action => 'new' %>

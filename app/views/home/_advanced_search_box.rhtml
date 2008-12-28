@@ -1,0 +1,12 @@
+<fieldset id="advanced-search">
+    <legend>Find the Bride &amp; Groom!</legend>
+    <% form_tag(	{:action => "advanced_search"},
+					{:method => "get"},
+					{:id => "advanced-search-form"}) do -%>
+		<img src="/images/misc/template-new-cutting2_04.gif" align="left"/>
+		<p>
+			<%= text_field_tag :customer_search, params[:customer_search] %>
+			<%= submit_tag "Search", :name => nil %>
+		 </p>
+	<% end -%>
+</fieldset>

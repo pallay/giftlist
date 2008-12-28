@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="6"
+   name=""
+   committed-date="2008-03-10T18:18:58.959200Z"
+   url="file:///usr/local/svn/rockyrepo/trunk/vendor/plugins/restful_auth/generators"
+   last-author="root"
+   kind="dir"
+   uuid="944c7a38-9c47-0410-a5db-db689c78549c"
+   repos="file:///usr/local/svn/rockyrepo"
+   revision="6"/>
+<entry
+   name="authenticated"
+   kind="dir"/>
+</wc-entries>

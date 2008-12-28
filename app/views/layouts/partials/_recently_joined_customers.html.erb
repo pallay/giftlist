@@ -1,0 +1,26 @@
+<h3><span><strong>Weddings coming up</strong></span></h3>
+<ul>
+	<li>
+		<%= link_to image_tag("/images/buttons/template-new-cutting6_32.png", :alt => "left-image", :width => "9", :height => "79") %>
+	</li>
+	<% unless @recent_users_name.nil? || @recent_users_wedding_venue[0].nil? -%>
+		<li>
+			<%= image_tag(@recent_users_wedding_image[0], :size =>"80x80") %><br/>
+			<span class="name"><%= @recent_users_name[0] + " & " + @recent_users_name[1] %></span><br/>
+			<span class="town"><%= @recent_users_wedding_venue[0] %></span>
+		</li>
+		<li>
+			<img src="/images/photos/template-new-cutting6_36.png" alt="bridegroom-photo" width="80" height="80" /><br/>
+			<span class="name">Zahir &amp; Zoe</span><br/>
+			<span class="town">London</span>
+		</li>
+		<li>
+			<img src="/images/photos/template-new-cutting6_34.png" alt="bridegroom-photo" width="80" height="80" /><br/>
+			<span class="name">Metz &amp; Trikz</span><br/>
+			<span class="town">London</span>
+		</li>
+	<% end %>
+	<li>
+		<%= link_to image_tag("/images/buttons/template-new-cutting6_29.png", :alt => "right-image", :width => "9", :height => "79") %>
+	</li>
+</ul>

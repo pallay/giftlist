@@ -1,0 +1,21 @@
+<div class="cart-title">Your Giftlist Snapshot</div>
+
+<table>
+    <tr>
+ 		<% for column in Product.content_columns %>
+	 		<th><%= column.human_name %><th/>
+    	<% end %>
+ 	<tr/>
+
+ 	<% for products in @products %>
+ 	<tr>
+ 		<% for columns in Product.content_columns %>
+ 			<td>  <%= h(product.send(column.name) %>  </td>
+ 		<% end %>
+ 		<td> <% link_to 'Show', :action => 'show', :id => product %> </td>
+ 	</tr>
+	<% end %>
+</table>
+
+
+<%= button_to "Add your details", :action => :create %>

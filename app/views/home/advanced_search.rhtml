@@ -1,0 +1,7 @@
+<%#= render :partial => "advanced_search_box" -%>
+
+<% if (@wedding_date_search && @wedding_venue_search) %>
+	<p> Your search for number "<%= params[:wedding_date_search] %>" and "<%= params[:wedding_venue_search] %>"
+		found the result </p>
+	<%#= render(:partial => "advanced_search_result") %>
+<% end -%>

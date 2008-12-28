@@ -1,0 +1,29 @@
+<%= image_tag "/images/misc/giftbox-open.jpeg", :alt => 'giftbox image', :height => "50", :style => "float: left;" %>
+<h3>Your Drag and Drop Gift List:</h3>
+
+<div id="cart2">
+  <div id="items">
+	    <%= render :partial => "cart2" %>
+  </div>
+	<div id="breaker"></div>
+  <div id="wastebin">
+ 		<%= image_tag "/images/misc/wastebucket-image.jpeg", :alt => 'wastebucket image', :height => "50", :title => 'Drag an image from above to remove it from your Gift List' %>
+  </div>
+	<div id="empty-cart">
+		<% form_tag :controller => 'giftlists', :action => 'empty' do -%>
+			<%= image_submit_tag '/images/misc/empty-cart.jpg', :title => 'Click here to clear your Gift List', :alt => 'empty cart image', :controller => 'giftlists', :action => 'empty' %>
+		<% end -%>
+	</div>
+  <div class="breaker"></div>
+</div>
+
+<div id="loading">
+	<p id="indicator" style="display: none">
+  	<%= image_tag "ajax-loading.gif" %> Updating cart...
+	</p>
+</div>
+
+
+<%= drop_receiving_element "cart2", :update => "items", :url => {:action => "add_product"}, :accept => "products", :hoverclass => "cart-active", :loading => "Element.show('loading')", :complete => "Element.hide('loading')" %>
+      
+<%= drop_receiving_element "wastebin", :update => "items", :url => {:action => "remove_product"}, :accept => "cart-items", :hoverclass => "wastebin-active", :before => "Element.hide(element)", :loading => "Element.show('loading')", :complete => "Element.hide('loading')" %>

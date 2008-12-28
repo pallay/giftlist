@@ -1,0 +1,27 @@
+<%= render :partial => 'navigation' %>
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Status</th>
+		<th>Total Amount</th>
+		<th>Size</th>
+		<th>Created At</th>
+		<th>Created At</th>
+		<th>Updated at</th>
+		<th></th>
+	</tr>
+	<% for payment in @payments %>
+		<tr>
+			<td align="right"><%= payment.id %></td>
+			<td align="right"><%= payment.status %></td>
+			<td align="right"><%= payment.total %></td>
+			<td align="right"><%= payment.product.size %></td>
+			<td align="right"><%= payment.created_at.strftime("%d-%m-%Y %Y:%M") %></td>
+			<td align="right"><%= payment.updated.strftime("%d-%m-%Y %Y:%M") %></td>
+			<td> button_to "View", :action => 'show', id: payment %></td>
+        </tr>
+	<% end %>
+</table>
+
+<%= 'View Page:' if @payment.page_count > 1 %>
+<%= pagination_links @payment_pages %>

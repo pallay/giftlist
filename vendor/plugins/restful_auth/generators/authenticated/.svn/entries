@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="6"
+   name=""
+   committed-date="2008-03-10T18:18:58.959200Z"
+   url="file:///usr/local/svn/rockyrepo/trunk/vendor/plugins/restful_auth/generators/authenticated"
+   last-author="root"
+   kind="dir"
+   uuid="944c7a38-9c47-0410-a5db-db689c78549c"
+   repos="file:///usr/local/svn/rockyrepo"
+   revision="6"/>
+<entry
+   committed-rev="1"
+   name="USAGE.txt"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-04T13:21:18.099878Z"
+   checksum="febb7ba26cfabd092814c008974b5ca9"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   committed-rev="1"
+   name="authenticated_generator.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-04T13:21:18.099878Z"
+   checksum="527db38f31afdca0edcc4d108d0bce7f"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   name="templates"
+   kind="dir"/>
+</wc-entries>

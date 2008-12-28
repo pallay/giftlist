@@ -1,0 +1,13 @@
+<div id="search-box">
+	<h3>Search for a Gift List</h3>
+	<div id="customer-number-search" class="search1">
+		<%= render :partial => 'layouts/partials/customer_number_search' %>
+	</div>
+	<p class="advanced-search-text">If you do not know the Wedding Gift List number use the advanced search.</p>
+	<a href="#" onclick="Effect.BlindDown('giftlist-search'); return false;">
+	 	<%= image_tag("/images/buttons/template-new-cutting_r4_c2.jpg", {:title => 'Click here if you do not know the Gift List Number', :height => '15px'}) %>
+  </a>
+	<div id="giftlist-search" class="search1" style="display: none;">
+		<%= render :partial => 'layouts/partials/advanced_search' %>
+	</div>
+</div>

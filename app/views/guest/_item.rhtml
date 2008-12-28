@@ -1,0 +1,11 @@
+<% if item == @current_item %>
+	<tr id="current_item">
+<% else %>
+	<tr>
+	<!--><tr id="<%#= "cart-row-#{item.product.id.to_s}" %>">-->
+<% end %>
+	<td><%= link_to image_tag(item.image_url, :width => "40", :height => "40"), product_path(item.product_id) %></td>
+	<td><%= link_to truncate(item.name, 20), product_path(item.product_id) %></td>
+	<td class="item-price"><%= number_to_pound(item.price) %></td>
+	<td><%= remove_item_link("x", item.line_item_id) %></td>
+</tr>

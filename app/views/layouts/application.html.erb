@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+				"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta name = "description" content = "Shaadi Gift List Site - coming out of beta soon!">
+	<meta name = "copyright" content = "Copyright (c) 2008 RockyTrack">
+	<meta name = "author" content = "Pallay Raunu">
+	<title>Shaadi Gift List</title>
+	<LINK REL="SHORTCUT ICON" HREF="/favicon.ico">
+	<%= stylesheet_link_tag "autosuggest_inquisitor", "forms", "shaadigiftlist-new", "lightWindow", :media => "all" %>
+	<%= javascript_include_tag :defaults, :cache => true %>
+	<style type="text/css">img {behavior:	url("pngbehavior.htc");}</style>
+	<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="ie.css" /><![endif]-->		
+</head>
+<body>
+<div id="top-section">
+	<div id="main-menu">
+		<ul>
+			<li><%= link_to 'Log In', login_path, :class => "login" %></li>
+			<li><%= link_to 'About Us', about_path %></li>
+			<li><%= link_to 'Contact Us', contact_path %></li>
+		</ul>
+	</div> <!-- end div#main-menu -->
+	<div id="aesthetic"><!-- FOR YELLOW BORDER -->
+		<div id="header">
+			<h1><span><%= link_to 'Shaadi Gift List', root_url %></span></h1>
+			<a><%= root_url %></a>			
+		</div> <!-- end div#header -->
+		<div id="page">
+			<%= render :partial => 'layouts/partials/notice' %>
+     	<div id="more-links" class="top">
+       	<div class="container">
+         	<ul>
+	       		<li><div class="left"></div><%= link_to 'Home', root_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'Log In', login_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'Log Out', logout_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'Search', giftlists_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'And another link' %><div class="right"></div></li>
+      		</ul>
+        </div>
+      </div>
+			<%= yield %>
+			<%= render :partial => 'layouts/partials/debug' %>
+		</div> <!-- end div#page -->
+  	<div class="breaker"></div>
+		<div id="bottom-section">
+			<div id="wrapper">
+				<div id="latest-weddings">
+					<%= render :partial => 'layouts/partials/recently_joined_customers' %>
+				</div> <!-- end div#latest-weddings -->
+				<div id="disclaimer">
+					<h3><span><strong>Disclaimer</strong></span></h3>
+				 	<p>We do not routinely disclose our sources and seek to protect the source of any information we receive before disclosing intelligence to our partners (for example, the police, local ...</p>							
+				</div> <!-- end div#disclaimer -->
+				<div class="breaker"></div>
+			</div> <!-- end div#wrapper -->
+		</div> <!-- end div#bottom-section -->
+		<div class="breaker"></div>
+		<div id="footer">
+			<ul>
+				<li>Copyright Shaadi Gift List &copy; 2008 | </li>
+				<li><%= link_to 'An advert goes here' %> | </li>
+				<li class="last"><%= link_to 'Another Link' %> | </li>
+			</ul>
+			<div class="breaker"></div>
+		</div> <!-- end div#footer -->			
+	</div> <!-- end div#main-menu (yellow-border)-->
+</div> <!-- end div#top-section -->
+</body>
+</html>

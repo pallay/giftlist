@@ -1,0 +1,9 @@
+<%= "Drag the item picture (from the left) to here to purchase it for the Bride and Groom." if @cart.items == [] %>
+<% session[:acart].each do |product, quantity| %>
+	<div id="drag-drop-item">
+  	<% quantity.times do |i| %>
+    	<%= image_tag Product.find(product.product_id).image_url, :size => "50x50", :class => "cart-items", :id => "item_#{product_id}_#{i}", :style => "position: relative; float: left" %>
+			<%= draggable_element "item_#{product_id}_#{i}", :revert => true %>
+  	<% end %>
+	</div>
+<% end %>

@@ -1,0 +1,84 @@
+<div class="create-form">
+
+	<form name="paypalform" id="paypalform" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" onsubmit="return save(this)">
+		
+		<%= hidden_field_tag "cmd", "_cart" %>
+		<%= hidden_field_tag "upload", "1" %>
+		<%= hidden_field_tag "business", "sales@shaadigiftlist.com" %>
+		<%= hidden_field_tag "currency_code", "GBP" %>
+
+		<ul id="guest-cart">
+			<% session[:guestcart].items.each do |item| %>
+				<li id="guestcart_item_<%= item.line_item_id %>" >
+					<%= render :partial => "item", :object => item %>
+					<%= render :partial => "paypal_item", :collection => session[:guestcart].items %>
+				</li>
+			<% end %>
+		</ul>
+
+		<div id="guestcart-total">Total: <%= number_to_pound(session[:guestcart].total_price) %></div>
+
+		<br/>
+		<fieldset>
+			<legend>Please Enter your Details</legend>
+
+			<% fields_for :user do |user| %>
+				<%= error_messages_for :user %>
+				<label for="guest_first_name">First Name:</label><br/>
+				<%= user.text_field :first_name, :size => 40 %><br/>
+				<label for="guest_last_name">Last Name:</label><br/>
+				<%= user.text_field :last_name, :size => 40 %><br/>
+				<label for="guest_email">Email:</label><br/>
+				<%= user.text_field :email, :size => 40 %><br/>
+				<label for="guest_contact_number">Contact Number:</label><br/>
+				<%= user.text_field :contact_number, :size => 40 %><br/>
+			  <br/>
+				You will be redirected to PayPal to complete payment of your purchases.<br/>
+				<input id="paypal_account_confirmation" name="" onclick="if (this.checked) Effect.BlindDown('paypal-form');	else Effect.BlindUp('paypal-form');" type="checkbox" value="0"/>
+				Please click here if the PayPal Account is not in your name
+			<% end %>
+		  <br/>
+		</fieldset>
+
+		<div id="paypal-form" style="display: none">
+			<fieldset>
+				<br/>
+				<legend>Please Enter the PalPal Details</legend>
+				<% fields_for :payment do |payment| %>
+					<%= error_messages_for :payment %>
+					<label for="purchaser_first_name">First Name:</label><br/>
+					<%= payment.text_field :purchaser_first_name, :size => 40 %><br/>
+					<label for="purchaser_last_name">Last Name:</label><br/>
+					<%= payment.text_field :purchaser_last_name, :size => 40 %><br/>
+					<label for="purchaser_email">Email:</label><br/>
+					<%= payment.text_field :purchaser_email, :size => 40 %><br/>
+					<label for="purchaser_telephone">Contact Number:</label><br/>
+					<%= payment.text_field :purchaser_telephone, :size => 40 %><br/>
+					<br/>
+			<% end %>
+			</fieldset>
+ 		</div>
+		<br/>
+		<fieldset>
+			<legend>Gift Message</legend>
+			<% fields_for :giftmessage do |giftmessage| %>
+				<%= error_messages_for :giftmessage %>
+
+				<label for="giftmessage">Please enter a message here for the Bride and Groom.<br/>
+				You can use it to personalise the gift(s) you want to send.<br/>
+				<small>It only costs &pound 3 to use this feature.</small>
+				</label><br/>
+				<%= giftmessage.text_area :message, :rows => 4, :cols => 40 %>
+
+			<% end %>
+		</fieldset>
+		
+		<%= hidden_field_tag "notify_url", "#{root_url}checkout/notify" %>
+		<%= hidden_field_tag "rm", "2" %> <!--rm is return method, 1=GET 2=POST-->
+		<%= hidden_field_tag "return", "#{root_url}checkout/thank_you" %>
+		<%= hidden_field_tag "cancel_return", "#{root_url}checkout/cancelled" %>
+		<br/>
+		<%= image_submit_tag "/images/buttons/paypal-image.jpeg", {:class => 'paypal-search-image', :alt => 'paypal button image', :width => '50', :height => '30', :align => 'absmiddle', :title => 'Click to pay with PayPal', :name => nil} %>
+	</form>
+
+</div>

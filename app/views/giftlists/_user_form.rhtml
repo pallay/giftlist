@@ -1,0 +1,28 @@
+<div class="help"></div>
+<strong class="error"><%= error_messages_for :customer %></strong>
+<div>
+	<% fields_for :customer do |customer| -%>
+		<label for="customer_first_name">*First Name:</label>
+		<%= customer.text_field :first_name, :size => 40 %><br/>
+		<label for="customer_last_name">*Last Name:</label>
+		<%= customer.text_field :last_name, :size => 40 %><br/>
+		<label for="customer_date_of_birth">Date of Birth:</label>
+		<%= customer.text_field :date_of_birth, :size => 40 %><br/>
+		<label for="customer_email">*Email:</label>
+		<%= customer.text_field :email, :size => 40 %><br/>
+		<label for="customer_contact_number">Contact Number:</label>
+		<%= customer.text_field :contact_number, :size => 40 %><br/>
+		<label for="customer_evening_number">Evening Number:</label>
+		<%= customer.text_field :evening_number, :size => 40 %><br/>
+		<label for="customer_mobile_number">Mobile Number:</label>
+		<%= customer.text_field :mobile_number, :size => 40 %><br/>
+		<label for="customer_customertype_id">Are you the groom?:</label>
+		<%#= customer.check_box(:customer_type_id, {}, "2", "1") %><br/>
+		<label for="customer_user_name">*Login:</label>
+		<%= customer.text_field :login, :size => 40 %><br/>
+		<label for="customer_password">*Password:</label>
+		<%= customer.password_field :password, :size => 40 %><br/>
+		<label for="customer_password_confirmation">*Confirm Password:</label>
+		<%= customer.password_field :password_confirmation, :size => 40 %><br/>
+	<% end -%>
+</div>

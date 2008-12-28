@@ -1,0 +1,13 @@
+Congratulations on activating your RockyTrack account, <%=h @user.username %>.
+Please keep this email for your records.
+
+You can login to your account at <%= @login_url %>
+
+Enjoy!
+
+The RockyTrack Team.
+
+
+
+If you didn't create this RockyTrack account and don't recognise where this email came from,
+please visit: <%= @account_creation_faq_url %>

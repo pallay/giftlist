@@ -1,0 +1,9 @@
+<% for column in Product.content_columns %>
+	<p>
+		<img src= "<% @product.image_url %> ">
+		<b><%= column.human_name %>:</b> <%=h( @product.send(column.name) )%>
+	</p>
+<% end %>
+
+<%= link_to 'Edit', :action => 'edit', :id => @product %> |
+<%= link_to 'Back', :action => 'list' %>

@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+				"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	
+	<meta name = "description" content = "Shaadi Gift List Site - under-development">
+	<meta name = "copyright" content = "Copyright (c) 2008 RockyTrack">
+	<meta name = "author" content = "Pallay Raunu">
+  <LINK REL="SHORTCUT ICON" HREF="/favicon.ico">
+	<title>Shaadi Gift List</title>
+	<%= stylesheet_link_tag 'shaadigiftlist-new.css', "lightWindow" %>
+	<%= javascript_include_tag :defaults, 'LightWindow', :cache => true %>
+	<style type="text/css">img {behavior: url("pngbehavior.htc");}</style>
+	<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="ie.css"/><![endif]-->
+
+</head>
+
+<body>
+	
+<div id="top-section">
+	<div id="main-menu">
+		<ul>
+			<li><%= link_to 'Log In', login_path, :class => 'login' %></li>
+			<li><%= link_to 'About us', about_path %></li>
+			<li><%= link_to 'Contact us', contact_path %></li>
+		</ul>
+	</div> <!-- end div#main-menu -->
+	<div id="aesthetic"><!-- FOR YELLOW BORDER -->
+		<div id="header">
+			<h1><span>Shaadi Gift List</span></h1>
+			<%= link_to root_url %>			
+		</div> <!-- end div#header -->
+		<div id="page">		
+			<div id="left-column" class="front">
+				<%= link_to(image_tag("/images/misc/template-new-cutting_08.jpg", {:alt => "Sign up now!", :width => "174", :height => "98"}), new_giftlist_path) %>
+				<h3>Some news for you</h3>
+				<p><%= truncate('We do not routinely disclose our sources to protect the source of any information we receive before disclosing intelligence to our partners (for example, the police, local authorities or other government departments). However, we cannot guarantee the confidentiality of any information provided to us where there are legal, regulatory or operational reasons for disclosure. We do not routinely disclose our sources to protect the source of any information we receive before disclosing intelligence to our partners. We do not routinely', 475) %> <%= link_to 'more' %></p> 
+			</div> <!-- end div#left-column -->
+			<div id="middle-column" class="front">
+				<%#= link_to image_tag("/images/photos/jaharul_sis1_r1_c1.jpg", :alt => 'Front picture large', :width => "260px", :title => "The Gift that every beautiful Bride wants"), :class => "lWOn", :rel => "lightbox" %>
+				<a href="/images/photos/jaharul_sis1_r1_c1.jpg" class="lWOn" title="my caption"><img src="/images/photos/jaharul_sis1_r1_c1.jpg" alt ="" width="260"/></a>
+			</div> <!-- end div#middle-column -->
+			<div id="right-column">
+				<div id="search-box">
+					<%= render :partial => 'layouts/partials/notice' %>
+					<h3>Search for a Gift List</h3>
+					<div id="customer-number-search" class="search">
+						<%= render :partial => 'layouts/partials/customer_number_search' %>
+					</div>
+					<p class="advanced-search-text">If you do not know the Wedding Gift List number use the advanced search.</p>
+					<a href="#" onclick="Effect.BlindDown('advanced-search'); return false;">
+					 	<%= image_tag("/images/buttons/template-new-cutting_r4_c2.jpg", {:title => 'Click here if you do not know the Gift List Number', :height => '15px'}) %>
+				  </a>
+					<div id="advanced-search" class="search" style="display: none;">
+						<%= render :partial => 'layouts/partials/advanced_search' %>
+					</div>
+				</div>
+				<br/>
+				<div class="thinny">
+					<h3>Gifts you will LOVE!</h3>
+					<p><%= truncate('We do not routinely disclose our sources to protect the source of any information we receive before disclosing intelligence to our partners (for example, the police, local authorities or other government departments). However, we cannot guarantee the confidentiality of any information provided to us where there are legal, regulatory or operational reasons for disclosure.', 325) %> <%= link_to 'more' %></p>
+				</div> <!-- end div#thinny -->
+				<div id="tag">
+					<%= render :partial => 'layouts/partials/tag' %>
+				</div> <!-- end div#tag -->
+			</div> <!-- end div#right-column -->
+			<div class="breaker"></div>
+		</div> <!-- end div#page -->
+  	<div class="breaker"></div>
+		<div id="more-links" class="front">
+			<div class="container">
+				<ul>
+       		<li><div class="left"></div><%= link_to 'Home', root_url %><div class="right"></div></li>
+          <li><div class="left"></div><%= link_to 'Log In', login_url %><div class="right"></div></li>
+          <li><div class="left"></div><%= link_to 'Log Out', logout_url %><div class="right"></div></li>
+          <li><div class="left"></div><%= link_to 'Search', giftlists_url %><div class="right"></div></li>
+          <li><div class="left"></div><%= link_to 'And another link' %><div class="right"></div></li>
+				</ul>
+			</div> <!-- end div#container -->
+		</div> <!-- end div#more-links -->
+		<div id="bottom-section">
+			<div id="wrapper">
+				<div id="latest-weddings">
+					<%= render :partial => 'layouts/partials/recently_joined_customers' %>
+				</div> <!-- end div#latest-weddings -->
+				<div id="disclaimer" class="front">
+					<h3><span><strong>Disclaimer</strong></span></h3>
+					<p><%= truncate('We do not routinely disclose our sources to protect the source of any information we receive before disclosing intelligence to our partners (for example, the police, local authorities or other government departments). However, we cannot guarantee the confidentiality of any information provided to us where there are legal, regulatory or operational reasons for disclosure.', 250) %> <%= link_to 'more' %></p>
+				</div> <!-- end div#disclaimer -->
+				<div class="breaker"></div>
+			</div> <!-- end div#wrapper -->
+		</div> <!-- end div#bottom-section -->
+		<div class="breaker"></div>
+		<div id="footer">
+			<ul>
+				<li>Copyright Shaadi Gift List &copy; 2008 | </li>
+				<li><%= link_to 'An advert goes here' %> | </li>
+				<li class="last"><%= link_to 'Another Link' %> | </li>
+			</ul>
+			<div class="breaker"></div>
+		</div> <!-- end div#footer -->
+	</div> <!-- end div#main-menu (yellow-border)-->
+</div> <!-- end div#top-section -->
+	
+</body>
+</html>

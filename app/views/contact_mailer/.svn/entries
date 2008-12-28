@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="6"
+   name=""
+   committed-date="2008-03-10T18:18:58.959200Z"
+   url="file:///usr/local/svn/rockyrepo/trunk/app/views/contact_mailer"
+   last-author="root"
+   kind="dir"
+   uuid="944c7a38-9c47-0410-a5db-db689c78549c"
+   repos="file:///usr/local/svn/rockyrepo"
+   revision="6"/>
+<entry
+   committed-rev="6"
+   name="contact_form.html.erb"
+   text-time="2008-03-11T15:46:02.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="c3f07c4a44a141ab097ee860e20fb4b8"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:02.000000Z"/>
+<entry
+   committed-rev="6"
+   name="ccontact_form.html.erb"
+   text-time="2008-03-11T15:46:02.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="9a3c0cff86e51b84f4c765db3c8555d2"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:02.000000Z"/>
+<entry
+   committed-rev="6"
+   name="ccontact_form.plain.html.erb"
+   text-time="2008-03-11T15:46:02.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="1488316a9f8d28e54177c28566520d00"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:02.000000Z"/>
+</wc-entries>

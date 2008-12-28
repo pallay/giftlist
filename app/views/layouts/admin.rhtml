@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+				"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>Administrator Shaadi Gift List</title>
+	<meta name = "description" content = "Shaadi Gift List Site - coming out of beta soon!">
+	<meta name = "copyright" content = "Copyright (c) 2008 Codecrafters">
+	<meta name = "author" content = "Pallay Raunu">
+	<LINK REL="SHORTCUT ICON" HREF="/favicon.ico">
+  <%= stylesheet_link_tag "autosuggest_inquisitor", "shaadigiftlist-new", "shaadigift", "lightWindow", :media => "all" %>
+  <%= javascript_include_tag :defaults, "lightWindow", :cache => true%>
+	<style type="text/css">img {behavior:	url("pngbehavior.htc");}</style>
+	<!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="ie.css" /><![endif]-->
+</head>
+
+<body>
+<div id="top-section">
+	<div id="main-menu">
+		<ul>
+			<li><%= link_to 'Log In', login_path, :class => 'login' %></li>
+			<li><%= link_to 'About us', about_path %></li>
+			<li><%= link_to 'Contact us', contact_path %></li>
+		</ul>
+	</div>
+	<div id="aesthetic"><!-- FOR YELLOW BORDER -->
+		<div id="header">
+			<h1><span>Shaadi Gift List</span></h1>
+			<a><%= root_url %></a>
+		</div>
+		<div id="page">
+     	<div id="more-links">
+       	<div class="container">
+         	<ul>
+	       		<li><div class="left"></div><%= link_to 'Home', root_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'Log In', login_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'Log Out', logout_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'Search', giftlists_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'And another link' %><div class="right"></div></li>
+     			</ul>
+				</div>
+      </div>
+      <div id="left-column">
+				<%= link_to "Home", :controller => 'admin_login' %> <br/>
+				<%= link_to "Product details", :controller => 'admin', :action => 'list' %> <br/>
+				<%= link_to "List Bride&Grooms", :controller => 'admin_login', :action => 'list_customers' %> <br/>
+				<%= link_to "List Orders", :controller => 'admin_login', :action => 'list_orders' %> <br/>
+				<%= link_to "List current", :controller => 'admin_login', :action => 'list_adminusers' %> <br/>
+				<%= link_to "Add new", :controller => 'admin_login', :action => 'add_adminuser' %> <br/>
+				<%= link_to "Logout", :controller => 'admin_login', :action => 'logout' %>               
+			</div> <!-- End left-column -->
+			<div id="middle-column" class="listing">
+	    	<h2 class="welcome-to"><%= @page_title %></h2>
+				<%= render :partial => 'layouts/partials/notice' %>
+				<%= yield :layout %>
+     	</div> <!-- End Middle-Column -->
+			<!--<div id="right-column"><div>--><!-- End right-column -->
+			<div class="breaker"></div>
+		</div><!-- End Page -->
+ 		<div class="breaker"></div>
+		<div id="bottom-section">
+			<div id="wrapper">
+				<div class="breaker"></div>
+			</div>
+		</div>
+		<div class="breaker"></div>
+		<div id="footer">
+			<ul>
+				<li>Copyright Shaadi Gift List &copy; 2008 | </li>
+				<li><%= link_to 'An advert goes here' %> | </li>
+				<li class="last"><%= link_to 'Another Link' %> | </li>
+			</ul>
+			<div class="breaker"></div>
+		</div>
+	</div><!-- FOR YELLOW BORDER -->
+</div><!-- End top-section -->
+</body>
+</html>

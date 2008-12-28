@@ -1,0 +1,45 @@
+/* 
+================================================
+auto_complete, inquisitor style
+================================================
+*/
+
+body {position: relative;}
+
+div.auto_complete div.as_header, div.auto_complete div.as_footer {position: relative; height: 6px; padding: 0 6px; background-image: url('images/img_inquisitor/ul_corner_tr.gif'); background-position: top right; background-repeat: no-repeat; overflow: hidden;}
+div.auto_complete div.as_footer {background-image: url('images/img_inquisitor/ul_corner_br.gif');}
+
+div.auto_complete div.as_header div.as_corner, div.auto_complete div.as_footer div.as_corner {position: absolute; top: 0; left: 0; height: 6px; width: 6px; background-image: url('images/img_inquisitor/ul_corner_tl.gif'); background-position: top left; background-repeat: no-repeat;}
+div.auto_complete div.as_footer div.as_corner
+{background-image: url('images/img_inquisitor/ul_corner_bl.gif');}
+div.auto_complete div.as_header div.as_bar, div.auto_complete div.as_footer div.as_bar {height: 6px; overflow: hidden; background-color: #333;}
+
+div.auto_complete ul {list-style: none; margin: 0 0 -4px 0; padding: 0; overflow: hidden; background-color: #333;}
+
+div.auto_complete ul li {color: #ccc; padding: 0; margin: 0 4px 4px; text-align: left;}
+
+div.auto_complete ul li a {color: #ccc; display: block; text-decoration: none; background-color: transparent; text-shadow: #000 0px 0px 5px; position: relative; padding: 0; width: 100%;}
+div.auto_complete ul li a:hover {background-color: #444;}
+div.auto_complete ul li.as_highlight a:hover {background-color: #1B5CCD;}
+
+div.auto_complete ul li a span {display: block; padding: 3px 6px; font-weight: bold;}
+
+div.auto_complete ul li a span small {font-weight: normal; color: #999;}
+
+div.auto_complete ul li.as_highlight a span small {color: #ccc;}
+
+div.auto_complete ul li.as_highlight a {color: #fff; background: #1B5CCD; background-image: url('images/img_inquisitor/hl_corner_br.gif'); background-position: bottom right; background-repeat: no-repeat;}
+
+div.auto_complete ul li.as_highlight a span {background-image: url('images/img_inquisitor/hl_corner_bl.gif'); background-position: bottom left; background-repeat: no-repeat;}
+
+div.auto_complete ul li a .tl, div.auto_complete ul li a .tr {background-image: transparent; background-repeat: no-repeat; width: 6px; height: 6px; position: absolute; top: 0; padding: 0; margin: 0;}
+div.auto_complete ul li a .tr {right: 0;}
+
+div.auto_complete ul li.as_highlight a .tl
+{left: 0; background-image: url('images/img_inquisitor/hl_corner_tl.gif'); background-position: bottom left;}
+
+div.auto_complete ul li.as_highlight a .tr {right: 0; background-image: url('images/img_inquisitor/hl_corner_tr.gif'); background-position: bottom right;}
+
+div.auto_complete ul li.as_warning {font-weight: bold; text-align: center;}
+
+div.auto_complete ul em {font-style: normal; color: #6EADE7;}

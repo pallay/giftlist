@@ -1,0 +1,17 @@
+We've been contacted via the Contact Form on rockytrack.co.uk.
+
+Please double-check the schedule (which Pallay will set up at some point) to confirm it's your day to action any responses to Contact Form queries.
+
+Remember the email and your reply is not saved in the database, so please retain the original email and all correspondance in your yahoo/google web account. Thanks!
+
+================================================================= 
+User:    <%=h @name %>
+Company: <%=h @company || "nil" %>
+Phone:   <%=h @phone || "nil" %>
+
+Message:
+-----------------------------------------------------------------
+<%=h @message %>
+
+-----------------------------------------------------------------
+Generated at <%= Time.now.to_s %>

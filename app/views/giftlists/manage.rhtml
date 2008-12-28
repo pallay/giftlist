@@ -1,0 +1,22 @@
+<h3>The items in your Gift List are shown below</h3>
+<br/>
+You can change the priority of the items in your Shaadi Gift List here.
+
+<div id="BrideGroom-GiftList">
+	<ul id=giftlist_products_list>
+		<% for product in @giftlist_products -%>
+			<li id="item_<%= product.id %>">
+      	<img src="<%= product.image_url %>" alt="<%= product.name %>" width="65px" height="65px" />
+				<span class="name"> <%= link_to product.name , :action => :show_product, :id => product.id %></span><br>
+        <span class="quantity">There are <strong><%= product.quantity %></strong> of these in your Shaadi Gift List at priority: <strong><%= product.position %></strong></span><br/>
+        <span class="description">Description: <%= truncate(product.description, 120) %> <em>more</em> </span><br/>
+				<span class="price">Price: <%= product.price %></span>
+			</li>
+		<% end -%>
+	</ul>
+</div>
+
+<%= sortable_element 'giftlist_products_list',  :url => { :action => "sort"},
+                       							:complete => visual_effect(:highlight, 'giftlist_products_list') %>
+
+<%= button_to "Continue", :action => :details %>

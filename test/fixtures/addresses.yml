@@ -1,0 +1,37 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+brides_address:
+  id: 1
+  line_one: 456 Foutaine
+  line_two:
+  line_three:
+  city: Twitterham
+  county: Lodon
+  country: Ingerland
+  post_code: TW14 1SH
+  created_at: <%= 5.days.ago.to_s :db %>
+  <%# address = Address.find(1) %>
+  <%# user.address = address %>
+grooms_address:
+  id: 2
+  line_one: 123 Gougerbank
+  line_two:
+  line_three:
+  city: Hadingtoun
+  county: Eastern Lothian
+  country: Scotchland
+  post_code: EH11 2AA
+  created_at: <%= 5.days.ago.to_s :db %>
+  <%# address = Address.find(2) %>
+  <%# user.address = address %>
+guests_address:
+  id: 3
+  line_one: 123 Vicars Lair
+  line_two:
+  line_three:
+  city: Likeastar
+  county: Middle Earth
+  country: Ingerland
+  post_code: LE99 8JW
+  created_at: <%= 5.days.ago.to_s :db %>
+  <%# address = Address.find(3) %>
+  <%# user.address = address %>

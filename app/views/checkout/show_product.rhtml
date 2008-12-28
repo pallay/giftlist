@@ -1,0 +1,8 @@
+<img src= "<%= @product.image_url %> " alt="product image"/><br/>
+<h3>Name: <%= @product.name %></h3><br/>
+<b>Category:</b> <%= @product.category %><br/>
+<b>Product Reference:</b> <%= @product.reference %><br/>
+<b>Description:</b> <%= @product.description %><br/>
+<b>Product Price:</b> <%= number_to_pound(@product.price) %><br/>
+
+<%= link_to 'Back', :action => 'index' %>

@@ -1,0 +1,5 @@
+<%= form_tag({:action => "giftlistnumber_search"}, {:method => "get"}) -%>
+	Enter the Wedding Giftlist Number <br/>
+	<%= text_field_tag :giftlistnumber %>
+	<%= submit_tag "Search" %>
+<%= end_form_tag -%>

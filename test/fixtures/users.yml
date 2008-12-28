@@ -1,0 +1,73 @@
+#  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+#  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+admin:
+  id: 1
+  login: admin
+  email: talk2us@rockytrack.co.uk
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  #test
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1
+  <% role = Role.find_by_role_name('administator') %>
+  <% user = User.find_by_login('admin') %>
+  <% permission = Permission.new %>
+  <% permission.role = role %>
+  <% permission.user = user %>
+  created_at: <%= 5.days.ago.to_s :db %>
+  activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups
+  #activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9a 
+
+groom:
+  id: 2
+  login: pallay
+  first_name: pallay
+  last_name: raunu
+  date_of_birth: 08/07/1981
+  contact_number: 07711 22 33 44
+  email: pallay.raunu@googlemail.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  #test
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1
+  <% role = Role.find_by_role_name('groom') %>
+  <% user = User.find_by_login('pallay') %>
+  <% permission = Permission.new %>
+  <% permission.role = role %>
+  <% permission.user = user %>
+  activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups
+  #activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9a 
+
+bride:
+  id: 3
+  login: palinder
+  first_name: palinder
+  last_name: randhawa
+  date_of_birth: 03/01/1981
+  contact_number: 07799 88 77 66
+  email: palinder@googlemail.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  #test
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1
+  <% role = Role.find_by_role_name('bride') %>
+  <% user = User.find_by_login('palinder') %>
+  <% permission = Permission.new %>
+  <% permission.role = role %>
+  <% permission.user = user %>
+  activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups
+  #activation_code: 8f24789ae988411ccf33ab0c30fe9106fab32e9a 
+
+guest:
+  id: 4
+  login: moseeds
+  first_name: mohammed
+  last_name: seedat
+  date_of_birth: 03/08/1983
+  contact_number: 07711 22 33 44
+  email: moseeds@yahoo.co.uk
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  #test
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1
+  <% role = Role.find_by_role_name('guest') %>
+  <% user = User.find_by_login('moseeds') %>
+  <% permission = Permission.new %>
+  <% permission.role = role %>
+  <% permission.user = user %>
+  # activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups

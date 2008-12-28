@@ -1,0 +1,26 @@
+<div class="help"></div>
+<strong class="error"><%= error_messages_for :partner %></strong>
+<div>
+	<% fields_for :partner do |partner| -%>
+		<label for="partner_first_name">*First Name:</label>
+		<%= partner.text_field :first_name, :size => 40 %><br/>
+		<label for="partner_last_name">*Last Name:</label>
+		<%= partner.text_field :last_name, :size => 40 %><br/>
+		<label for="partner_date_of_birth">Date of Birth:</label>
+		<%= partner.text_field :date_of_birth, :size => 40 %><br/>
+		<label for="partner_email">*Email:</label>
+		<%= partner.text_field :email, :size => 40 %><br/>
+		<label for="partner_contact_number">Contact Number:</label>
+		<%= partner.text_field :contact_number, :size => 40 %><br/>
+		<label for="partner_evening_number">Evening Number:</label>
+		<%= partner.text_field :evening_number, :size => 40 %><br/>
+		<label for="partner_mobile_number">Mobile Number:</label>
+		<%= partner.text_field :mobile_number, :size => 40 %><br/>
+		<label for="partner_user_name">*Login:</label>
+		<%= partner.text_field :login, :size => 40 %><br/>
+		<label for="partner_password">*Password:</label>
+		<%= partner.password_field :password, :size => 40 %><br/>
+		<label for="partner_password_confirmation">*Confirm Password:</label>
+		<%= partner.password_field :password_confirmation, :size => 40 %><br/>
+	<% end -%>
+</div>

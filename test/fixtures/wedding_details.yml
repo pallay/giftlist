@@ -1,0 +1,13 @@
+bride:
+  id: 1
+  user_id: 2
+  wedding_date: <%= Time.now.to_s %>
+  image_url: /images/photos/pallay_and_pallinder.jpeg
+  venue: hounslow
+
+groom:
+  id: 2
+  user_id: 3
+  wedding_date: <%= Time.now.to_s %>
+  image_url: /images/photos/pallay_and_pallinder.jpeg
+  venue: hounslow

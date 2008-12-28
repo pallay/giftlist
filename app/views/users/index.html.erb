@@ -1,0 +1,19 @@
+<h1><%= @page_title %></h2>
+<div id="users">
+	<% if logged_in? && if current_user.has_role?('administrator') %>
+		<h2>All Users</h2>
+		<table>
+			<tr>
+				<th>User Name</th>
+				<th>Email</th>
+				<th>Enabled?</th>
+				<th>Roles</th>
+			</tr>
+			<%= render :partial => 'user-large', :collection => @all_users %>
+		</table>
+	<% end %>
+	<% else %>
+		<%= render :partial => 'user', :collection => @grooms %>
+	<% end %>
+</div>
+		

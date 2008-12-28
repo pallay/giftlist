@@ -1,0 +1,13 @@
+##page.insert_html :top, "guestcart_notice", :partial => "guestcart"
+
+page.replace_html "guestcart", :partial => "guestcart"
+page[:guestcart].visual_effect :blind_up if session[:guestcart].items.sum{1} < 1
+
+#page.visual_effect :highlight, "guestcart_item_#{@lineitem_to_remove}", :duration => 0.5, :startcolor => "#8D8684",	:endcolor => "#D5BE51"
+##page.replace_html "guestcart_item_#{@lineitem_to_remove}", :partial => "guestcart/lame"
+#page.visual_effect :fade, "guestcart_item_#{@lineitem_to_remove}", :duration => 0.5
+
+#page.visual_effect :highlight, "item_#{@lineitem_to_remove}", :duration => 0.5, :startcolor => "#8D8684",	:endcolor => "#D5BE51"
+#page.show "item_#{@line_item_to_remove}"
+
+#page[:current_item].visual_effect	:highlight,	:startcolor => "#8D8684",	:endcolor => "#D5BE51"

@@ -1,0 +1,15 @@
+administrator:
+  id: 1
+  role_name: administrator
+  
+bride:
+  id: 2
+  role_name: bride
+ 
+groom:
+  id: 3
+  role_name: groom
+
+guest:
+  id: 4
+  role_name: guest

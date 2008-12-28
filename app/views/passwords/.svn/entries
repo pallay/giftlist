@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="6"
+   name=""
+   committed-date="2008-03-10T18:18:58.959200Z"
+   url="file:///usr/local/svn/rockyrepo/trunk/app/views/passwords"
+   last-author="root"
+   kind="dir"
+   uuid="944c7a38-9c47-0410-a5db-db689c78549c"
+   repos="file:///usr/local/svn/rockyrepo"
+   revision="6"/>
+<entry
+   committed-rev="1"
+   name="edit.html.erb"
+   text-time="2008-03-11T15:46:03.000000Z"
+   committed-date="2008-03-04T13:21:18.099878Z"
+   checksum="49d6717c56430299ea502dc17efd0645"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:03.000000Z"/>
+<entry
+   committed-rev="6"
+   name="new.html.erb"
+   text-time="2008-03-11T15:46:03.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="7d16c76570916b2854029868578b5712"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:03.000000Z"/>
+</wc-entries>

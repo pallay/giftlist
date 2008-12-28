@@ -1,0 +1,10 @@
+<img src= "<%= @product.image_url %> " alt="product-picture" height="100px" width="100px" /><br/>
+<b>Name:</b> <%= @product.name %><br/>
+<b>Category:</b> <%= @product.category %><br/>
+<b>Our Reference:</b> <%= @product.reference %><br/>
+<b>Description:</b> <%= @product.description %><br/>
+<b>Product Price:</b> <%= number_to_pound(@product.price) %><br/>
+
+<div class="back-button">
+	<%= button_to 'Back', :controller => 'dashboard', :action => 'index' %>
+</div>

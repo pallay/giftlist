@@ -1,0 +1,21 @@
+#page.replace_html("cart", :partial => "cart", :object => @cart)
+
+#page[:current_item].visual_effect :blind_up if @cart.total_items < 1
+
+#page[:current_item].visual_effect	:highlight,	:startcolor => "#8D8684",	:endcolor => "#D5BE51"
+
+#page[:current_item].hide #remove #hide
+#config.action_view.debug_rjs = true
+
+		page.replace_html("cart", :partial => "cart", :object => @cart)
+
+#if !@current_item.nil?
+#page[:current_item].visual_effect :blind_up if @current_item.quantity == 0
+#page[:current_item].visual_effect	:highlight,	:startcolor => "#8D8684",	:endcolor => "#D5BE51"
+#end
+#page[:current_item].hide #remove #hide
+#page[:current_item].value = ''
+#config.action_view.debug_rjs = true
+
+
+page[:cart].visual_effect :blind_up if @cart.total_items < 1

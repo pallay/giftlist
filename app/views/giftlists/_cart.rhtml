@@ -1,0 +1,18 @@
+<div id="cart_notice">
+	<% if flash[:cart_notice] -%>
+		<%= flash[:cart_notice] -%>
+	<% end %>
+</div>
+<div class="cart-title">
+	<h3>Your Gift List So Far</h3>
+</div>
+
+<table>
+	<%= render(:partial => "cart_item", :collection => cart.items) %>
+	<tr class="total-line">
+		<td colspan="2">Total</td>
+		<td class="total-cell"><%= number_to_pound(cart.total_price) %></td>
+	</tr>
+</table>
+<br/>
+<%= button_to "Save your Gift List", :action => 'details' unless controller.action_name == 'details' %>

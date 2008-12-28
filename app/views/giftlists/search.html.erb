@@ -1,0 +1,15 @@
+<div id="customer_number" class="search_results">
+	<% unless @bride.nil? || @groom.nil? %>
+		<ul>
+			<li class="bridegroom_photo"><%= link_to image_tag(@bride_image), user_path(@bride) %></li>
+			<li class="bridegroom_name"><%= link_to @bride.first_name + " " + @bride.last_name, user_path(@bride) %></li>
+			<br/>
+		</ul>
+		<ul>
+			<li class="bridegroom_photo"><%= link_to image_tag(@groom_image), user_path(@groom) %></li>
+			<li class="bridegroom_name"><%= link_to @groom.first_name + " " + @groom.last_name, user_path(@groom) %></li>
+			<br/>
+		</ul>
+		<% end %>
+	<span class="giftlist_man"><%= link_to image_tag('/images/buttons/blue_giftlist_man.jpg', :title => "Click to go the Bride and Groom's Shaadi Gift List", :alt => 'picture of Gift List man', :height => '100px'), :controller => 'guest' %></span>
+</div>

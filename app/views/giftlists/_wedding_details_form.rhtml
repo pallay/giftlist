@@ -1,0 +1,17 @@
+<div class="help"></div>
+<strong class="error"><%= error_messages_for :wedding_details %></strong>
+<div>
+	<% fields_for :wedding_details do |wedding_details| -%>
+		<label for="wedding_details_wedding_date">Date of Wedding:</label>
+		<%= image_tag '/images/buttons/calander.gif', :alt => 'calander icon' %>
+		
+		<%#= calendar_date_select_includes "silver" %>
+		<%#= calendar_date_select_tag "e_date" %>
+		<%#select_year(Date.today, :start_year => 1992, :end_year => 2007)%>
+		
+		<%= wedding_details.date_select(:wedding_date, :start_year => 2008, :order => [:day, :month, :year]) %><br/>
+		<label for="wedding_details_venue">*Wedding Venue (City):</label>
+		<%= wedding_details.text_field :venue, :size => 40 %><br/>
+		<%#= render :partial => "giftlist/image_url" %>
+	<% end -%>
+</div>

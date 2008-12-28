@@ -1,0 +1,5 @@
+<h2>Account creation confirmations<h2>
+
+<p>For some of the functionality on <a href "www.rockytrack.co.uk">www.rockytrack.co.uk</a> a new user needs to provide an email address and we automatically send a confirmation message to that address. Unfortunately, in their haste, users often misspell their addresses, and the confirmation message is sent to the misspelled address instead of the user's intended address.</p>
+
+<p>Please note that the confirmation message is not an indication that your particular email account has been compromised in any way. If you receive any confirmation message - or any other message - from RockyTrack regarding an account that you did not create, we recommend contacting the us <%= mail_to '<a href="mailto:talk2us@rockytrack.co.uk">talk2us@rockytrack.co.uk</a>', "rockytrack.co.uk email address" %>Gmail account listed in the confirmation message to directly inform the account owner of the mistake.</p>

@@ -1,0 +1,7 @@
+giftlist_1_bride:
+  user_id: 3
+  order_id: 1
+
+giftlist_1_groom:
+  user_id: 2
+  order_id: 1

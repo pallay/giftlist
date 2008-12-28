@@ -1,0 +1,32 @@
+<%= error_messages_for 'product' %>
+
+<label for="product_name">Name</label>
+<%= text_field 'product', 'name'  %><br/>
+<br/>
+<label for="product_category">Category</label>
+<%= text_field 'product', 'category'  %><br/>
+<br/>
+<label for="product_sku">Product Reference</label>
+<%= text_field 'product', 'reference'  %><br/>
+<br/>
+<label for="product_description">Description</label>
+<%= text_area 'product', 'description'  %><br/>
+<br/>
+<label for="product_tag">Tags for this product:</label>
+<%= text_field_tag('tags', '') %><br/>
+<br/>
+<label for="product_image_url">Image url</label>
+<%= text_field 'product', 'image_url'  %><br/>
+<br/>
+<label for="product_cost">Unit Cost</label>
+<%= text_field 'product', 'unit_cost'  %><br/>
+<br/>
+<label for="product_markup">Markup %</label>
+<%= text_field 'product', 'markup_percentage'  %><br/>
+<br/>
+<label for="product_markup_amount">Markup Amount</label>
+<%= text_field 'product', 'markup_amount'  %><br/>
+<br/>
+<label for="product_price">Selling Price</label>
+<%= text_field 'product', 'price'  %><br/>
+<br/>

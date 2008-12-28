@@ -1,0 +1,6 @@
+<img src= "<%= @product.image_url %>" align="middle" alt="product_image" width="100px" height="100px" /><br/>
+<h3><%= @product.name %></h3><br/>
+Category: <%= @product.category %><br/>
+Our Reference: <%= @product.reference %><br/>
+Description: <%= @product.description %><br/>
+Product Price: <%= number_to_pound(@product.price) %><br/>

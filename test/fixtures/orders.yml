@@ -1,0 +1,6 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+giftlist_one:
+  id: 1
+  customer_number: 1234567
+  shipping_address_id: 3
+  order_condition_id: 3

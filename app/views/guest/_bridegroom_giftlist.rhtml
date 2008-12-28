@@ -1,0 +1,23 @@
+<ul id="bridegroom_giftlist">
+	<% @line_items.each do |li| %>
+		<% if session[:guestcart].has_item(li.product.id) %>
+			<% display_none(session[:guestcart].has_item(li.product.id), :id => "item_"+li.product.id.to_s) %>
+		<% end %>
+			<li id="item_<%=li.product.id %>" class="item">
+				<div class="product-info">
+					<ul>
+						<div class="product-info-top">
+							<li><%= link_to image_tag(li.product.image_url, {:alt => li.product.image_url+" image", :size => "60x60"}), li.product.image_url, {:class => "lWOn", :rel => "Gift-List["+li.product.name+"]"} %></li>
+							<li><h3><%= truncate(li.product.name, 35) %></h3></li>
+						</div>
+						<li>Category: <%= li.product.category %></li>
+						<li>Position: <%= li.position %></li>
+						<li>Item Price: <%= number_to_pound(li.product.price) %></li>
+						<li class="purchase"><%= link_to image_tag("/images/buttons/purchase.png", :title => "click or drag to purchase this item", :alt => "purchase-item-image"),	:controller => "guest", :action => "add", :id => li.product.id %></li>
+					</ul>	
+				</div>
+			</li>
+			<%= draggable_element("item_#{li.product.id}", :revert => true) %>
+		<%# end %>
+	<% end %>
+</ul>

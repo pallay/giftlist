@@ -1,0 +1,66 @@
+<h3>Personal Details</h3>
+
+	<span id="first_name">First Name:</span>
+	<% @user.first_name = '-' if !@user.first_name || @user.first_name.strip == '' -%>
+	<%= in_place_editor_field :user, :first_name, {}, {} %> <br/>
+	<span id="last_name">Last Name:</span>
+	<% @user.last_name = '-' if !@user.last_name || @user.last_name.strip == '' -%>
+	<%= in_place_editor_field :user, :last_name %><br/>
+	<span id="date_of_birth">Date of Birth:</span>
+	<% @user.date_of_birth = '-' if !@user.date_of_birth || @user.date_of_birth.strip == '' -%>
+	<%= in_place_editor_field :user, :date_of_birth %><br/>
+	<span id="email">Email:</span>
+	<% @user.email = '-' if !@user.email || @user.email.strip == '' -%>
+	<%= in_place_editor_field :user, :email %><br/>
+	<span id="contact_number">Contact Number:</span>
+	<% @user.contact_number = '-' if !@user.contact_number || @user.contact_number.strip == '' -%>
+	<%= in_place_editor_field :user, :contact_number %><br/>
+	<span id="evening_number">Evening Number:</span>
+	<% @user.evening_number = '-' if !@user.evening_number || @user.evening_number.strip == '' -%>
+	<%= in_place_editor_field :user, :evening_number %><br/>
+	<span id="user_name">User Name:</span>
+	<% @user.login = '-' if !@user.login || @user.login.strip == '' -%>
+	<%= in_place_editor_field :user, :login %><br/>
+
+	<%= error_messages_for :user %>
+
+	<% fields_for :user do |user| %>
+		<label for="user_password">Password:</label>
+		<%= user.password_field :password, :size => 20 %><br/>
+		<label for="user_password_confirmation">Confirm Password:</label>
+		<%= user.password_field :password_confirmation, :size => 20 %><br/>
+	<% end %>
+	<%= submit_tag "Confirm" %>
+
+	<br/>
+	<br/>
+	
+	<h3>Address Details</h3>
+
+	<span id="line_one">Line One:</span>
+	<% @address.line_one = '-' if !@address.line_one || @address.line_one.strip == '' -%>
+	<%= in_place_editor_field :address, :line_one %><br/>
+	<span id="line_two">Line Two:</span>
+	<% @address.line_two = '-' if !@address.line_two || @address.line_two.strip == '' -%>
+	<%= in_place_editor_field :address, :line_two %><br/>
+	<span id="line_three">Line Three:</span>
+	<% @address.line_three = '-' if !@address.line_three || @address.line_three.strip == '' -%>
+	<%= in_place_editor_field :address, :line_three %><br/>
+	<span id="city">City:</span>
+	<% @address.city = '-' if !@address.city || @address.city.strip == '' -%>
+	<%= in_place_editor_field :address, :city %><br/>
+	<span id="county">County:</span>
+	<% @address.county = '-' if !@address.county || @address.county.strip == '' -%>
+	<%= in_place_editor_field :address, :county %><br/>
+	<span id="country">Country:</span>
+	<% @address.country = '-' if !@address.country || @address.country.strip == '' -%>
+	<%= in_place_editor_field :address, :country %><br/>
+	<span id="postcode">Postcode:</span>
+	<% @address.post_code = '-' if !@address.post_code || @address.post_code.strip == '' -%>
+	<%= in_place_editor_field :address, :post_code %><br/>
+
+<br/>
+
+<div class="back-button">
+	<%= button_to 'Back', :controller => 'dashboard', :action => 'index' %>
+</div>

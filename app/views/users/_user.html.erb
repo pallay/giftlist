@@ -1,0 +1,5 @@
+<div id="user">
+	<tr class="<%= cycle('odd', 'even') %>">
+		<td><%= link_to h(user.first_name) + " " + h(user.last_name), user_path(user) %></td>
+	</tr>
+</div>

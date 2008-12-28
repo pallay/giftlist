@@ -1,0 +1,243 @@
+/*
+Dark Grey: #8D8684
+Mauve: #F3F0EE
+Dark Yellow :#D5BE51
+Another Mauve:C0B4AF
+Heading: #8B8B8B
+*/
+
+body {font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 62.5%; color: black; text-align: center; margin: 0; padding: 0; background: url(/images/backgrounds/flower.jpg) no-repeat top center; background-color: #F3F3DE; padding-bottom: 10px;}
+
+fieldset {border: 0; padding: 0; margin: 0;}
+img {border: 0;}
+
+#aesthetic {padding: 0; border: 1px solid #C0B4AF; margin: 0 auto; width: 780px;}
+
+.breaker {border: none; clear: both; float: none; height: 0; font-size: 0; line-height: 0;}
+
+#top-section {width: 900px; height: 365px; /*background: url(/images/backgrounds/template-new-cutting16_09.jpg) no-repeat top left;*/ padding: 0; margin: 0 auto;}
+
+/* Main Menu Bar */
+#main-menu {width: 780px; margin-top: 20px; padding: 15px 0 0 0; text-align: right; position: relative; height: 2.3em;}
+#main-menu ul {list-style: none; padding: 0; margin: 0; position: absolute; right: -60px; bottom: -2px;}
+#main-menu ul li {float: left; font-size: 1.6em; font-family: Georgia, "Times New Roman", Times, serif; letter-spacing: -1px; padding: 0; margin: 0; text-align: center;}
+#main-menu ul li a {display: block; text-decoration: none; padding: 0; border: 0; text-align: center; background: url(/images/buttons/normal.gif) no-repeat center center; width: 120px; height: 18px; margin: 0 0 2px 2px; color: #FFFFFF;}
+#main-menu ul li a:hover {background: url(/images/buttons/over.gif) no-repeat center center; color: #C0B4AF;}
+
+/* Header */
+#header {width: 780px; height: 113px; background: url(/images/banners/template-new-cutting23_06.jpg) no-repeat top left; xbackground: url(/images/banners/template-new-cutting26_06.jpg) no-repeat top left; display: block; margin: 0 auto -1px 0; z-index: 1;}
+
+#header.front {zbackground: url(/images/banners/template-new-cutting23_06.jpg) no-repeat top left;}
+#header h1 {zbackground:url(/images/logos/logo-transbg3.jpg) no-repeat top left; width: 260px; height: 110px; text-align: left; padding: 0; margin: 0; float: left;}
+#header h1 span {display: none;}
+#header a {display: none;}
+
+/* Page (all three columns) */
+#page {width: 760px; background-color: #F3F0EE; background: white; margin: 0 auto; text-align: left; padding: 10px; position: relative; color: #8B8B8B; font-size: 1.2em; line-height: 1.6em;}
+#page h3 {color: #C0B4AF; font-size: 1.4em; font-family: Georgia, "Times New Roman", Times, serif; font-weight: normal; padding: 0; margin: 0;}
+
+/* Left Column */
+#left-column.front {height: 400px; overflow: hidden; text-align: justify;}
+#left-column {width: 210px; float: left; background-color: white; padding: 0 15px 0 5px;}
+
+/* Middle Column */
+#middle-column {color: white; width: 240px; float: left; text-align: center; padding-top: 5px;}
+#middle-column h2, #middle-column h3 {font-family: Georgia, "Times New Roman", Times, serif; font-weight: normal; font-size: 1.5em;}
+
+#middle-column.listing {color: #666; width: 500px; background-color: white; text-align: left; padding: 0 10px;}
+
+/* Right Column */
+#right-column {float: right; width: 255px; margin: 10px -5px -1px 0; padding: 20px 0px 5px 10px;}
+#right-column.front {zbackground: white url(/images/backgrounds/template-new-cutting3_07.jpg) no-repeat top right;}
+#right-column.cart {float: right; width: 180px; margin-right: -1px; padding: 0px 10px 5px 10px; z-index: 40; xheight: 355px; overflow: visible; background-color: #F3F0EE;}
+#right-column.checkout {background: url(/images/backgrounds/plain.jpg) repeat top left; float: right; width: 180px; margin-right: -1px; padding: 0px 10px 5px 10px; z-index: 40; height: 355px; overflow: visible; background-color: #F3F0EE;}
+
+.thinny {width: 175px; height: 260px; margin: -10px 10px 0px 0; padding: 0; overflow: hidden; text-align: justify;}
+.auto_complete {z-index: 100;}
+
+/* Products */
+#products {width: 550px;}
+.entry {float: left; width: 125px; height: 175px; border: 1px grey dashed; margin: 0 10px 10px 0; padding: 10px 15px; cursor: move;}
+.entry .name {height: 40px; height: 3.2em; overflow: hidden;}
+.entry .name h3 a {font-family: Georgia, "Times New Roman", Times, serif; font-weight: normal; text-decoration: none; color: #C0B4AF;}
+
+.entry img {margin: 0 auto; padding: 0;}
+.entry .description {height: 90px; overflow: hidden;}
+.entry .purchase-link {float: right; position: relative; bottom: 15px; right: -10px;}
+
+/* Drag Drop Checklist */
+
+#drag-drop {}
+#drag-drop .products {cursor: move;}
+
+#drag-drop-item .cart-items {padding: 3px;}
+
+#cart2 {width: 180px; margin-top: 12px;}
+
+#cart2 #items {border: 1px dashed grey; float: left; width: 170px; padding: 5px; margin: 5px 0; height: 100px; overflow: scroll;}
+.cart-active {background-color: yellow; border: 2px solid black;}
+
+#wastebin {height: 50px; float: right; margin: 0 auto;}
+.wastebin-active {border: 2px solid #000;}
+#empty-cart {background: url('/images/misc/empty-cart.jpg') no-repeat; height: 50px; float: right;}
+
+#drag-drop #loading {height: 10px; padding-top: 10px;}
+#drag-drop #loading p {display: none; margin-top: 0px;}
+
+/* Front Page search box */
+.search {border: 0;}
+.search legend {display: none;}
+.search input {float: left; padding: 0;}
+.search .text {width: 70%; font-size: 1.3em; font-family: helvetica, sans-serif; background-color: #F2EEDD; color: #8D8684; letter-spacing: 1px; z-index: 20; width: 130px; border-top: 1px solid #D5BE51; border-bottom: 1px solid #D5BE51; border-right: 1px solid #D5BE51; border-left: 0; margin: 9px 0 0 -2px;}
+.search .submit {font-family: Georgia, "Times New Roman", Times, serif; text-transform: capitalize; background: none; width: 3em; overflow: hidden; float: left; margin-left: 3px; color: #8D8684; margin-top: 9px}
+
+#search-box {margin: -30px 0 0 0; padding: 10px 10px 0 0px; height: 115px;}
+
+#advanced-search {background-color: white; z-index: 50; position: absolute; border: 2px solid #D5BE51; width: 260px; height: 100px; padding: 10px; background-color: #F2EEDD;}
+#advanced-search-image {vertical-align: middle;}
+#custnumber-search-input {width: 130px; height: 19px;} /* Enter a Gift List Number box */
+#wedding-search {width: 170px; height: 19px; margin-bottorightm: 10px; background-color: #FFF} /* Enter Wedding Value box */
+.search-image-button {padding: 10px 0;}
+.advanced-search-text {font-size: 11px; line-height: 12px; color: #C0B4AF; margin: 0; padding: 5px 0 5px 0; width: 250px;}
+
+#product-search-box {width: 350px; height: 20px;}
+
+/* Tag on front page */
+#tag {width: 150px; height: 170px; background: url(/images/misc/template-new-cutting17_13.gif) no-repeat top left; position: absolute; top: 160px; right: -80px; padding: 75px 5px 5px 5px; font-family: Georgia, "Times New Roman", Times, serif; z-index: 40;}
+
+#tag ul li {float: left; padding: 0 4px 4px 4px; margin: 0;}
+
+#tag p {list-style: none; padding: 3px; margin: 0 5px 5px 5px; width: 120px; height: 110px; line-height: 1.7em;}
+#tag p a {text-decoration: none; color: #8D8684;}
+#tag p a:hover {border-bottom: 1px dotted;}
+
+.largest {font-size: 1.4em; color: #D5BE51;}
+.large {font-size: 1.2em;}
+.medium {font-size: 1em;}
+.small {font-size: 0.8em; color: #666}
+.smallest {font-size: 0.7em;}
+
+/* More Links */
+#more-links {width: 760px; margin: 0 auto; background-color: white; height: 2.3em; padding: 0; text-align: center; font-family: Georgia, "Times New Roman", Times, serif; font-weight: bold; letter-spacing: -1px;}
+
+#more-links.front {width: 770px; padding: 0px 0 0 10px;}
+#more-links {padding: 0; margin: 0 auto; list-style: none; text-align: right;}
+
+#more-links div.container ul {padding: 0; margin: 0 auto; list-style: none; background-color: #0066FF; text-align: center;}
+#more-links div.container ul li {padding: 5px; margin: 0 auto; list-style: none; float: left;}
+#more-links div.container ul li a {color: #756E6C; font-size: 1.4em; text-decoration: none;}
+
+#more-links.top {border-bottom: 1px solid #efefef; height: 35px; z-index: 3; position: relative;}
+#more-links.top div.container {border-top: none; position: absolute; left: 10px;}
+#more-links.top div.container ul {margin: 0; display: block;}
+#more-links.top div.container ul li {height: 35px; padding: 0; margin: 0; border-bottom: 1px solid white;}
+#more-links.top div.container ul li a {float: left; display: block; background: url(/images/buttons/menu-top.jpg) repeat-x top left white; padding: 14px 8px 0 8px; color: #CCCCCC; font-size: 1em; height: 21px;}
+#more-links.top div.container ul li div {width: 6px; float: left; height: 25px; margin-top: 10px;}
+#more-links.top div.container ul li div.left{background: url(/images/buttons/menu-left.jpg) repeat-y top left;}
+#more-links.top div.container ul li div.right{background: url(/images/buttons/menu-right.jpg) repeat-y top right;}
+#more-links.top div.container ul li a:hover {color:#666666;}
+
+/* Bottom Section */
+#bottom-section {width: 780px; margin: 0 auto; text-align: left; padding-top: 10px; background-color: white; color: #666666; font-size: 1.2em; line-height: 1.6em;}
+#bottom-section h3 {font-family: Georgia, "Times New Roman", Times, serif; font-size: 1.2em; font-weight: normal; color: white; xbackground: url(/images/misc/template-new-cutting4_32.png) no-repeat bottom left; xpadding-left: 42px; xheight: 32px; display: block;}
+#bottom-section h3 span {background: url(/images/misc/template-new-cutting5_33.png) no-repeat bottom right; padding: 0 40px 0 10px; height: 32px;}
+
+#wrapper {background:url(/images/backgrounds/template-new-cutting4_18.jpg) repeat-x top left; margin: 0 5px 0 5px; height: 170px; padding: 15px 10px 10px 10px;}
+
+#latest-weddings {float: left; width: 465px;}
+#latest-weddings ul {padding: 0; margin: 0;}
+#latest-weddings ul li {padding: 0; margin: 0; list-style: none; float: left; margin-left: 15px; font-size: 1em; }
+#latest-weddings ul li .name {color: #666666;}
+#latest-weddings ul li .town {color: #C0B4AF;}
+
+#disclaimer.front {width: 250px; padding: 0 5px; float: right;}
+
+/* Footer */
+#footer {width: 780px; margin: 0 auto; color: #988741; background-color: white; padding: 20px 0 10px 0;}
+#footer ul {list-style: none; margin: 0; padding: 0 0 0 10px;}
+#footer ul li {float:left;}
+#footer ul li .last {}
+#footer a {color: #988741; text-decoration: none; padding-right: 5px; padding-left: 5px;}
+
+/* Notices */
+#guestcart_notice, #cart_notice, #notice {zbackground:url(../images/misc/template-new-cutting26_49.png) no-repeat center center; background-color: #7DCF89; color: white; margin: 5px -5px; padding: 0px 10px;}
+#error {background-color: #FF7E71; color: white; padding: 1px 5px;}
+
+/* Carts */
+ul#guest-cart {background: url('/images/misc/template-new-cutting26_49-2.png') no-repeat center center; list-style: none; padding: 0px 5px 10px 5px;}
+
+#cart {background: url('/images/misc/template-new-cutting26_49-2.png') no-repeat center center; margin: 0; padding: 0;}
+#guestcart {background: url('/images/misc/template-new-cutting26_49-2.png') no-repeat center center; margin: 0; padding: 0;}
+#guestcart .item {list-style: none;}
+/*ul.guestcart_items {list-style: none; padding: 0 5px 10px 5px;}*/
+
+
+/* Bridegroom Giftlist (guest) */
+#bridegroom_giftlist {list-style: none; margin-bottom: 30px;}
+#bridegroom_giftlist li.item {float: left;}
+#bridegroom_giftlist li a img {float: left}
+.product-info {float: left; width: 180px; height: 150px; background-color: white; border: 1px grey dashed; margin: 0 10px 10px 0;}
+.product-info ul {list-style: none; text-align: left; line-height: 1.3em; padding: 10px;}
+.product-info ul li img {padding: 0 10px;}
+.product-info-top {padding-bottom: 5px;}
+.purchase img {height: 30px; width: 30px; position: relative; bottom: 35px; left: 120px;}
+
+ul#giftlist_products_list {list-style: none; margin: 0; padding: 0;}
+ul#giftlist_products_list li {border: 1px grey dashed; padding: 1em; margin-bottom: 1em;}
+ul#giftlist_products_list h3 span.name a {font-family: Georgia, "Times New Roman", Times, serif; font-weight: normal; color: #666;}
+ul#giftlist_products_list span.priority {float: right; font-size: 3em; padding: 0.5em 0.5em 0 0;}
+
+/* Order */
+ul.orders {background:url(/images/backgrounds/drop-down-190-179px.gif) no-repeat top center; color: #000; list-style: none; width: 190px; height: 179px; padding: 40px 0 0 0; margin: 0; z-index:400;}
+
+ul.orders li {list-style: none; font-size: 10px; color: #666;}
+ul.orders li div.customer_number {color: #B54545; font-family: Georgia, "Times New Roman", Times, serif; font-size: 12px; font-weight: bold; display: block;}
+ul.orders li.selected {background-color: #FFFFEA; color: #666; cursor: pointer;}
+
+/* Gift List */
+.search_results ul {list-style: none; float: left; text-align: center; padding: 0 5px;}
+.search_results li.bridegroom_photo img {height: 90px; width: 90px;}
+.search_results li.bridegroom_name {display: block;}
+.search_results span.giftlist_man img {width: 200px; height: 100px;}
+
+/* Contact List */
+.contactus-form {padding: 10px; height: 340px; width: 550px;}
+.contactus-form-part1 {float: left; width: 250px; padding: 0 10px;}
+.contactus-form-part2 {float: right; width: 200px; padding: 0 10px;}
+
+/* Horizontal Accordion */
+#top_container {height: 400px; width: 1008%;}
+#top-section {width: 900px; height: 365px; /*background: url(../images/backgrounds/template-new-cutting16_09.jpg) no-repeat top left;*/ padding: 0; margin: 0 auto;}
+
+.horizontal_accordion_toggle {float: left; /* REQUIRED This make sure it stays horizontal */
+display: block; xheight: 150px; width: 30px; xbackground: url(/images/h_accordion_toggle.jpg) no-repeat top left #a9d06a; color: #ffffff; text-decoration: none; outline: none; border-right: 2px solid #fff; cursor: pointer; margin: 0;}
+.horizontal_accordion_toggle h3 {display: block; padding: 0; margin: 0; width: 30px; height: 600px; text-decoration: none;}
+.horizontal_accordion_toggle .pan-1 {background: url(/images/buttons/form/1.jpg) no-repeat top center #f4f4f4;}
+.horizontal_accordion_toggle .pan-2 {background: url(/images/buttons/form/2.jpg) no-repeat top center #f4f4f4;}
+.horizontal_accordion_toggle .pan-3 {background: url(/images/buttons/form/3.jpg) no-repeat top center #f4f4f4;}
+.horizontal_accordion_toggle .pan-4 {background: url(/images/buttons/form/4.jpg) no-repeat top center #f4f4f4;}
+.horizontal_accordion_toggle .pan-5 {background: url(/images/buttons/form/5.jpg) no-repeat top center #f4f4f4;}
+
+.horizontal_accordion_toggle_active {xbackground: url(/images/h_accordion_toggle_active.jpg) no-repeat bottom left #e0542f; border-right: 2px solid #fff; }
+.horizontal_accordion_toggle_active .pan-1 {background: url(/images/buttons/form/sel-1.jpg) no-repeat top center #666;}
+.horizontal_accordion_toggle_active .pan-2 {background: url(/images/buttons/form/sel-2.jpg) no-repeat top center #666;}
+.horizontal_accordion_toggle_active .pan-3 {background: url(/images/buttons/form/sel-3.jpg) no-repeat top center #666;}
+.horizontal_accordion_toggle_active .pan-4 {background: url(/images/buttons/form/sel-4.jpg) no-repeat top center #666;}
+.horizontal_accordion_toggle_active .pan-5 {background: url(/images/buttons/form/sel-5.jpg) no-repeat top center #666;}
+.horizontal_accordion_content {xheight: 300px; /* REQUIRED We need to define a height for the accordion as it stretches the width */ float: left; /* REQUIRED This make sure it stays horizontal */ overflow: hidden; background-color: #ffffff; color: #444444;}
+.horizontal_accordion_content p {width: 450px; line-height: 150%; padding: 5px 10px 15px 10px;}
+#complete-signup {width: 550px;}
+
+/* Errors */
+.fieldWithoutErrors, .fieldWithErrors {outline-width: 1px; outline-color: white; outline-style: solid; /* IE doesnt understand !important. NB Border is not needed for firefox, so might as well make it 0px! */ border-width: 0px !important; /* for IE! */ border-width: 1px; border-color: white; border-style: solid;}
+.fieldWithErrors {background: red; background-color: red; outline-color: red; /* for IE! */ border-color: red;}
+
+/* Login */
+#login-screen {width: 700px; height: 500px;}
+#login-form {width: 250px; float: right;}
+#login-desc {width: 350px; padding: 0 10px; float: left;}
+
+/* About */
+#about-screen {width: 700px; height: 500px; padding: 10px;}
+#about-desc {float: left; width: 400px;}
+#about-pic {float: right;}

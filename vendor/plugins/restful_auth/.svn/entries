@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="6"
+   name=""
+   committed-date="2008-03-10T18:18:58.959200Z"
+   url="file:///usr/local/svn/rockyrepo/trunk/vendor/plugins/restful_auth"
+   last-author="root"
+   kind="dir"
+   uuid="944c7a38-9c47-0410-a5db-db689c78549c"
+   repos="file:///usr/local/svn/rockyrepo"
+   revision="6"/>
+<entry
+   committed-rev="1"
+   name="Rakefile.txt"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-04T13:21:18.099878Z"
+   checksum="ebfd713e05e35c55392c1999bf3bfb44"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   name="lib"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="install.rb"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-04T13:21:18.099878Z"
+   checksum="3773dce53854a282602d79a631a1ff8a"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+<entry
+   name="generators"
+   kind="dir"/>
+<entry
+   committed-rev="1"
+   name="README.txt"
+   text-time="2008-03-11T15:46:04.000000Z"
+   committed-date="2008-03-04T13:21:18.099878Z"
+   checksum="55b3f6d8c8e815aaad6c508f9d3540e2"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:04.000000Z"/>
+</wc-entries>

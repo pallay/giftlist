@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+				"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+
+	<title>Shaadi Gift List</title>
+	<meta name = "description" content = "Shaadi Gift List Site - coming out of beta soon!">
+	<meta name = "copyright" content = "Copyright (c) 2008 Codecrafters">
+	<meta name = "author" content = "Pallay Raunu">
+
+  <%= stylesheet_link_tag "autosuggest_inquisitor", "forms", "shaadigiftlist-new", "lightbox", :media => "all" %>
+  <%= javascript_include_tag :defaults, "lightbox", "accordion", :cache => true %>
+
+	<style type="text/css">
+		img {behavior:	url("pngbehavior.htc");}
+	</style>
+	<!--[if lte IE 6]>
+		<link rel="stylesheet" type="text/css" href="ie.css" />
+	<![endif]-->
+	
+	<!--[if IE]>
+	<style type="text/css">
+		#theform #pt7 {padding: 2em 1em 1em 1em;}
+	</style>
+	<![endif]-->
+	 <style type="text/css">
+
+ 	/*
+  	USAGE: All you have to do is include this one line in your CSS file, with the
+  	tag names to which you want the script applied:
+ 	*/
+ 	/* img, div { behavior: url(iepngfix.htc) }*/
+
+ 	/* Alternatively, you can specify that this will apply to all tags like so:
+   * { behavior: url(iepngfix.htc) } */
+ 	</style>
+
+ 	<script type="text/javascript">
+ 	//<![CDATA[
+
+ 	// If you don't want to put unstandard properties in your stylesheet, here's yet
+ 	// another means of activating the script. This assumes that you have at least one
+ 	// stylesheet included already. Remove the /* and */ lines to activate.
+
+ 	/* if (document.all && document.styleSheets && document.styleSheets[0] &&
+  		document.styleSheets[0].addRule)
+ 			{
+  			// Feel free to add rules for specific tags only, you just have to call it several times.
+  			document.styleSheets[0].addRule('*', 'behavior: url(iepngfix.htc)');
+ 			}
+ 	*/
+
+ 	function removeProductFromList(domId, actionURL){
+		//Do highlight
+		$(domId).visualEffect("highlight", {startcolor: "#8D8684", endcolor: "#D5BE51"});
+		//Do blind up if quantity is 0
+		new Ajax.Request(actionURL, {asynchronous:true, evalScripts:true});
+		return false;
+	}
+ 	//]]>
+ 	</script>	
+ 
+ 	<script type="text/javascript">
+		//  In my case I want to load them onload, this is how you do it!
+		Event.observe(window, 'load', loadAccordions, false);
+	
+		//	Set up all accordions
+		function loadAccordions() {
+			var topAccordion = new accordion('#top_container', {
+				classNames : {
+					toggle : 'horizontal_accordion_toggle',
+					toggleActive : 'horizontal_accordion_toggle_active',
+					content : 'horizontal_accordion_content'
+				},
+				defaultSize : {
+					width : 330
+				},
+				direction : 'horizontal'
+			});
+			// Open second one
+			topAccordion.activate($$('#top_container .horizontal_accordion_toggle')[0]);
+		}
+	</script>
+</head>
+
+<body>
+
+<div id="top-section">
+	<div id="main-menu">
+		<ul>
+			<li><%= link_to 'Log In', login_path  %></li>
+			<li><%= link_to 'About Us', about_path %></li>
+			<li><%= link_to 'Contact Us', contact_path %></li>
+		</ul>
+	</div>
+	<div id="aesthetic"><!-- FOR YELLOW BORDER -->
+		<div id="header">
+			<h1><span>Shaadi Gift List</span></h1>
+			<%= link_to root_url %>
+		</div>
+		<div id="page">
+     	<div id="more-links" class="top">
+       	<div class="container">
+         	<ul>
+	       		<li><div class="left"></div><%= link_to 'Home', root_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'Log In', login_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'Log Out', logout_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'Search', giftlists_url %><div class="right"></div></li>
+	          <li><div class="left"></div><%= link_to 'And another link' %><div class="right"></div></li>
+      		</ul>
+        </div>
+      </div>
+			<!--<div id="left-column"></div>--><!-- End left-column -->
+			<div id="middle-column" class="listing">
+				<h2 class="welcome-to"><%= @page_title || "Make your ShaadiGiftList" %></h2>
+				<%= render :partial => 'layouts/partials/notice' %>
+				<%= yield %>
+				<%= render :partial => 'layouts/partials/debug' %>
+     	</div><!-- End Middle-Column -->
+			<div id="right-column" class="cart">
+				<div id="drag-drop">
+					<%= render :partial => 'giftlists/dragdropcart' if controller.action_name == 'new' %>
+				</div>
+				<%= hidden_div_if(@cart.items.empty?, :id => "cart") %>
+					<%= render(:partial => "cart") %>
+				</div>
+			</div><!-- End right-column -->
+			<div class="breaker"></div>
+		</div><!-- End Page -->
+ 		<div class="breaker"></div>
+		<div id="bottom-section">
+			<div id="wrapper">
+				<div id="latest-weddings">
+					<%= render :partial => 'layouts/partials/recently_joined_customers' %>
+				</div>
+				<div id="disclaimer">
+					<h3><span><strong>Disclaimer</strong></span></h3>
+				 	<p>We do not routinely disclose our sources and seek to protect the source of any information we receive before disclosing intelligence to our partners (for example, the police, local ...</p>
+				</div>
+				<div class="breaker"></div>
+			</div>
+		</div>
+		<div class="breaker"></div>
+		<div id="footer">
+			<ul>
+				<li>Copyright Shaadi Gift List &copy; 2008 | </li>
+				<li><%= link_to 'An advert goes here' %> | </li>
+				<li class="last"><%= link_to 'Another Link' %> | </li>
+			</ul>
+			<div class="breaker"></div>
+		</div>
+	</div><!-- FOR YELLOW BORDER -->
+</div><!-- End top-section -->
+
+</body>
+</html>

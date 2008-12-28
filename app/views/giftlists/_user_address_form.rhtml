@@ -1,0 +1,25 @@
+<div class="help"></div>
+<strong class="error"><%= error_messages_for :customer_address %></strong>
+<div>
+	<% fields_for :customer_address do |customer_address| -%>
+		<label for="address_line_one">*First Line:</label>
+		<%= customer_address.text_field :line_one, :size => 40 %><br/>
+		<label for="address_line_two">Second Line:</label>
+		<%= customer_address.text_field :line_two, :size => 40 %><br/>
+		<label for="address_line_three">Third Line:</label>
+		<%= customer_address.text_field :line_three, :size => 40 %><br/>
+		<label for="address_city">*City:</label>
+		<%= customer_address.text_field :city, :size => 40 %><br/>
+		<label for="address_county">County:</label>
+		<%= customer_address.text_field :county, :size => 40 %><br/>
+		<label for="address_country">Country:</label>
+		<%= customer_address.text_field :country, :size => 40 %><br/>
+		<label for="address_post_code">*Post Code:</label>
+		<%= customer_address.text_field :post_code, :size => 40 %><br/>
+		<% fields_for :order do |order| -%>
+			<%= error_messages_for :order %>
+			<label for="order_shipping_address_id">Is this to be the shipping address?</label>
+			<%= order.check_box(:shipping_address_id, {}, "1", "0") %><br/>
+		<% end -%>
+	<% end -%>
+</div>

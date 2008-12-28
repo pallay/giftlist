@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="6"
+   name=""
+   committed-date="2008-03-10T18:18:58.959200Z"
+   url="file:///usr/local/svn/rockyrepo/trunk/app/views/user_mailer"
+   last-author="root"
+   kind="dir"
+   uuid="944c7a38-9c47-0410-a5db-db689c78549c"
+   repos="file:///usr/local/svn/rockyrepo"
+   revision="6"/>
+<entry
+   committed-rev="6"
+   name="signup_notification.html.erb"
+   text-time="2008-03-11T15:46:03.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="54a9ddfa492575a5ee93e2f6adea9049"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:03.000000Z"/>
+<entry
+   committed-rev="6"
+   name="activation.html.erb"
+   text-time="2008-03-11T15:46:03.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="a04b746ac46ea123c5ed1fdbf589840b"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:03.000000Z"/>
+<entry
+   committed-rev="6"
+   name="forgot_password.html.erb"
+   text-time="2008-03-11T15:46:03.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="0f2ce275c2dc5f145bfc488c5bbe0996"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:03.000000Z"/>
+<entry
+   committed-rev="6"
+   name="reset_password.html.erb"
+   text-time="2008-03-11T15:46:03.000000Z"
+   committed-date="2008-03-10T18:18:58.959200Z"
+   checksum="a8b601475fcb2b50705a397a7882573a"
+   last-author="root"
+   kind="file"
+   prop-time="2008-03-11T15:46:03.000000Z"/>
+</wc-entries>

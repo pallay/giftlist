@@ -1,0 +1,16 @@
+<div class="cart-title"><h3>Your Shaadi Gift List</h3></div>
+
+<div id="notice">
+	<%= flash[:notice] %>
+</div>
+
+<table>
+	<%= render(:partial => "cart_item", :collection => cart.items) %>
+	<tr class="total-line">
+		<td colspan="2">Total</td>
+		<td class="total-cell"><%= number_to_pound(cart.total_price) %></td>
+	</tr>
+</table>
+
+<%= button_to "Update my Gift List", :action => :add_items %>
+<%= link_to "Cancel", :action => :empty_cart %>

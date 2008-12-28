@@ -1,0 +1,86 @@
+<p>* are required fields.</p>
+
+<% form_for :order, :html => {:id => 'theform'}, :multipart => true, :url => {:action => :save} do |order| -%>
+
+	<%= error_messages_for :order %>
+	<div id="top_container" >
+		<div class="horizontal_accordion_toggle"><h3 class="pan-1"></h3></div>
+		<div class="horizontal_accordion_content">
+			<fieldset id="pt1">
+				<legend><span>Step </span>1. <span>: your details</span></legend>
+				<h3>Enter your own details.</h3>
+				<%= render :partial => 'user_form' %>
+			</fieldset>
+		</div> <!-- Ends Accordion Content -->
+
+		<div class="horizontal_accordion_toggle"><h3 class="pan-2"></h3></div>
+		<div class="horizontal_accordion_content">
+			<fieldset id="pt2">
+				<legend><span>Step </span>2. <span>: your address</span></legend>
+				<h3>Enter your home address incase we need to contact you (office use only)</h3>
+				<%= render :partial => 'user_address_form' %>
+			</fieldset>
+		</div> <!-- Ends Accordian Content -->
+
+		<div class="horizontal_accordion_toggle"><h3 class="pan-3"></h3></div>
+		<div class="horizontal_accordion_content">
+			<fieldset id="pt3">
+				<legend><span>Step </span>3. <span>: your partner's details</span></legend>
+				<h3>We need your partner's details too!</h3>
+				<%= render :partial => 'partner_form' %>
+			</fieldset>
+		</div> <!-- Ends Accordian Content -->
+
+		<div class="horizontal_accordion_toggle"><h3 class="pan-4"></h3></div>
+		<div class="horizontal_accordion_content">
+			<fieldset id="pt4">
+				<legend><span>Step </span>4. <span>: your partner's address</span></legend>
+				<h3>Your partner's address.</h3>
+				<%= render :partial => 'partner_address_form' %>
+			</fieldset>
+		</div> <!-- Ends Accordian Content -->
+
+		<div class="horizontal_accordion_toggle"><h3 class="pan-5"></h3></div>
+		<div class="horizontal_accordion_content">
+			<fieldset id="pt5">
+				<legend><span>Step </span>5. <span>: wedding details</span></legend>
+				<h3>You can let others know your RSVP details and to personalise your page</h3>
+				<%= render :partial => 'wedding_details_form' %>
+			</fieldset
+		</div> <!-- Ends Accordion Content -->
+	</div> <!-- Ends Top container -->
+
+<!--<div class="create-form">-->
+	<div class="breaker"></div>
+	<div id="complete-signup">
+		<fieldset id="pt6">
+			<legend><span>Step </span>6. <span>: disclaimer</span></legend>
+			<h3>Terms of Service.</h3>
+			<% fields_for :security do |security| -%>
+			<div id="disclaimer">By clicking the &#8220;Complete Signup&#8221; button, I am attaching my electronic signature to and agreeing to the ShaadiGiftList.com Terms of Service Agreement; I understand that if I do not agree to these terms of use and privacy statements, I should refrain from using ShaadiGiftList.com.<br/>
+				<%= security.check_box :terms_and_conditions, {}, "1", "0" %><br/>
+			</div>
+	 	</fieldset>
+
+		<fieldset id="pt7">
+			<legend><span>Step </span>7. <span>: tricky security question</span></legend>
+			<h3>To deter spammers, please answer this simple maths question.</h3>
+			<div class="help"></div>
+			<strong class="error"><%= error_messages_for :security %></strong>
+			<label for="security_question_calculation">*What is 1 + 1:</label>
+			<%= security.text_field :security_question, :size => 40 %><br/>
+			<% end -%>
+		</fieldset>
+
+  	<fieldset id="pt8">
+			<legend><span>Step </span>8. <span>: complete sign up</span></legend>
+			<h3>Click the button below to complete your registration.</h3>
+			<%= submit_tag "Complete Sign Up &raquo;", :id => "submitform" %>
+		</fieldset>
+
+		<div class="breaker"></div>
+	</div> <!-- Ends Complete Signup -->
+<% end -%>
+<!--</div>-->
+
+<div id="back-button" ><%= button_to 'Back', :action => 'new' %> </div>
