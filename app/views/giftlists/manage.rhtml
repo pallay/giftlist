@@ -16,7 +16,6 @@ You can change the priority of the items in your Shaadi Gift List here.
 	</ul>
 </div>
 
-<%= sortable_element 'giftlist_products_list',  :url => { :action => "sort"},
-                       							:complete => visual_effect(:highlight, 'giftlist_products_list') %>
+<%= sortable_element 'giftlist_products_list',  :url => { :action => "sort"}, :complete => visual_effect(:highlight, 'giftlist_products_list') %>
 
 <%= button_to "Continue", :action => :details %>

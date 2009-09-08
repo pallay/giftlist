@@ -1,4 +1,3 @@
-# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
 	def number_to_pound(number)
@@ -43,7 +42,7 @@ module ApplicationHelper
 #		  :href => url_for(	:controller => "giftlists", :action => "remove_product", :id => item),
 #			:onclick => "removeProductFromList(\"#{row_id}\",\" giftlist/remove_product/#{item}\"); return false;"}
 #	end
-	
+
 	private #-------------------------------------------------------
 
 	def redirect_to_index(msg = nil)

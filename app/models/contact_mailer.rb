@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  
+
   def contact_form(contact)
     @recipients             = ["therocks.vault@googlemail.com", "talk2us@rockytrack.co.uk"]
     @from                   = contact.email_address

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @grooms = Role.find_by_role_name('groom').users
     @current_user = current_user
   end
-  
+
   def show
     @current_user = current_user # i.e. can only view own profile  
     @user = User.find(params[:id])  
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
       render :action => 'edit'
     end
   end
-  
+
   def destroy # Disables user not delete them from the database
     @user = User.find(params[:id])
     if @user.update_attribute(:enabled, false)
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
     end
     redirect_to :action => 'index'
   end
- 
+
   def enable
     @user = User.find(params[:id])
     if @user.update_attribute(:enabled, true)

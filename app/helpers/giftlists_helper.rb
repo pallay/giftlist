@@ -14,5 +14,5 @@ module GiftlistsHelper
 		flash[:notice] = msg if msg
 		redirect_to :action => :index
 	end
-  
+
 end

@@ -5,17 +5,18 @@
 		<h3>Welcome back to your Shaadi Gift List.</h3>
 	<% end %>
 	<br/>
-		<%= image_tag @user_image, {:alt => "customer-image"} %><br/>
+	<%= image_tag @user_image, {:alt => "customer-image"} %><br/>
 	<br/>
 	<div class="customer-number">Your customer number: <%= @user_order.customer_number %>.</div>
 	<br/>
 	<% if @date_diff < 0 -%>
 		Your wedding was on <%= @wedding_date -%>. Congratulations!
 	<% elsif @date_diff > 0 -%>
-		Your wedding is on <%= @wedding_date -%>. That means there is only <strong> <%= @date_diff -%> <%= 'day'.pluralize -%></strong> to the big day!
+		Your wedding is on <%= @wedding_date -%>. That means there is only <strong><%= pluralize(@date_diff, 'day' -%></strong> to the big day!
 	<% else %>
 		Your wedding is today. Congratulations! Your gifts will arrive soon.
 	<% end -%>
+
 	<br/>
 	<br/>
 

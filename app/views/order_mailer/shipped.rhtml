@@ -1,25 +1,16 @@
 Dear <%= @customer.first_name %>
 
-
 This is a quick mail to say that your items:
 
-<%= render(:partial => "./line_item", :collection => @line_items) %>
+<%= render(:partial => "line_item", :collection => @line_items) %>
 
 have been shipped to
 	<%= @customer_address.line_one %>,
-	<% if !@customer_address.line_two.nil? %>
-		<%= @customer_address.line_two %>,
-	<% end -%>
-	<% if !@customer_address.line_three.nil? %>
-		<%= @customer_address.line_three %>,
-	<% end -%>
+	<% @customer_address.line_two ? @customer_address.line_two : '' %>
+	<% @customer_address.line_three ? @customer_address.line_three : '' %>
 	<%= @customer_address.city %>,
-	<% if !@customer_address.county.nil? %>
-		<%= @customer_address.county %>,
-	<% end -%>
-	<% if !@customer_address.country.nil? %>
-		<%= @customer_address.country %>,
-	<% end -%>
+	<% @customer_address.county ? @customer_address.county : '' %>
+	<% @customer_address.country ? @customer_address.country : '' %>
 	<%= @customer_address.postcode %>.
 
 Regards,

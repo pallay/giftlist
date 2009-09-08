@@ -1,5 +1,5 @@
 class CartItem
-	
+
 	attr_reader :product_id, :quantity, :product
   attr_writer :product_id
 
@@ -8,7 +8,7 @@ class CartItem
 		@product_id = product.id # <-- added as part of cart drag and drop
 		@quantity = 1
 	end
-	
+
 	def increment_quantity
 		@quantity += 1
 	end
@@ -25,11 +25,11 @@ class CartItem
 	def name
 		@product.name
 	end
-	
+
 	def price
 		@product.price * @quantity
   end
-    
+  
   def product_id
     @product.id
 	end

@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
   # Do the exception stuff since we are now a follower of skinny controller, fat models
   class ActivationCodeNotFound < StandardError
   end
-  
+
   class AlreadyActivated < StandardError
     attr_reader :user, :message;
     def initialize(user, message=nil)
@@ -121,7 +121,7 @@ class User < ActiveRecord::Base
   def validate_password_reset_code
     errors.add :password_reset_code, 'The password reset code is incorrect. Did you follow the email link?' unless (self.password_reset_code_confirmation == self.password_reset_code)
   end
-    
+
   def validate_current_password
     # !! console users can use user.save(false) to skip the check
     errors.add :current_password, 'Your current password is incorrect.' if (self.current_password && !authenticated?(self.current_password))
@@ -132,7 +132,7 @@ class User < ActiveRecord::Base
     self.make_password_reset_code
     UserMailer.deliver_forgot_password(self)
   end
-  
+
   def reset_password
     self.update_attribute(:password_reset_code, nil)
     UserMailer.deliver_reset_password(self)
@@ -148,7 +148,7 @@ class User < ActiveRecord::Base
     self.remember_token            = encrypt("#{email}--#{remember_token_expires_at}")
     save(false)
   end
-  
+
   def remember_me_for(time)
     remember_me_until time.from_now.utc
   end
@@ -164,15 +164,15 @@ class User < ActiveRecord::Base
     self.remember_token            = nil
     save(false)
   end
- 
+
   def self.find_email_for_forgotten_password(email)
     find :first, :conditions => ['email = ? and activation_code IS NULL', email]
   end
-   
+
   def has_role?(role_name)
     self.roles.find_by_role_name(role_name) ? true : false
   end
-  
+
   def formatted_name
     #{first_name} + #{last_name}
   end
@@ -211,7 +211,7 @@ class User < ActiveRecord::Base
     self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{self.username}--") if new_record?
     self.crypted_password = encrypt(password)
   end
-    
+
   def password_required?
     crypted_password.blank? || !password.blank?
   end

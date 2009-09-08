@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
   before_filter :login_required, :only => :destroy
   before_filter :not_logged_in_required, :only => [:create]
 
-  # login
   def new
     flash.now[:error] = "You are already logged in" if logged_in?
     redirect_to :controller => 'new' unless logged_in? || User.count > 0
@@ -18,7 +17,6 @@ class SessionsController < ApplicationController
     password_authentication(params[:login], params[:password])
   end
 
-  # logout
   def destroy		
     @title = "Logout"
     self.current_user.forget_me if logged_in?

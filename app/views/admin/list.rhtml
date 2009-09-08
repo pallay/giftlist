@@ -69,22 +69,14 @@
 			<td class="list-actions">
 				<%= link_to 'Show', :action => 'show', :id => product %><br/>
 				<%= link_to 'Edit', :action => 'edit', :id => product %><br/>
-				<%= link_to 'Destroy', { :action  => 'destroy', :id => product },
-																 :confirm => "Are you sure?",
-																 :method  => :post %>
+				<%= link_to 'Destroy', {:action  => 'destroy', :id => product}, :confirm => "Are you sure?", :method  => :post %>
 			</td>
 		</tr>
 	<% end %>
 	</table>
 </div>
 
-<%= if @product_pages.current.previous
-		link_to("Previous page", { :page => @product_pages.current.previous })
-	end
-%>
-<%= if @product_pages.current.next
-		link_to("Next page", { :page => @product_pages.current.next } )
-	end
-%>
+<%= link_to_if @product_pages.current.previous, "Previous page", {:page => @product_pages.current.previous} %>
+<%= link_to_if @product_pages.current.next, "Next page", {:page => @product_pages.current.next} %>
 <br/>
 <%= link_to 'Add new product', :action => 'new' %>

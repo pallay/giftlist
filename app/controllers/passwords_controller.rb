@@ -1,15 +1,11 @@
-# This controller handles the password recovery - all the password_reset_code stuff. i.e forgotten password, email out, reset_password and updating new password
-
 class PasswordsController < ApplicationController
 
   before_filter :not_logged_in_required, :only => [:new, :create]
-  
-  # Enter email address to recover password 
+
   def new
     @title = "Password Recovery"
   end
- 
-  # Forgot password action
+
   def create    
     return unless request.post?
     if @user = User.find_email_for_forgotten_password(params[:email])
@@ -22,9 +18,7 @@ class PasswordsController < ApplicationController
       render :action => 'new'
     end  
   end
-  
-  # Action triggered by clicking on /reset_password/:id link received via email
-  # Checks that id code is included, and finds user.
+
   def edit
     @title = "New password"
     if params[:id].nil?
@@ -39,9 +33,7 @@ class PasswordsController < ApplicationController
     flash[:error] = "That's seems to be an invalid reset code. Please check your code and try again. (Perhaps your email client inserted a carriage return?)"
     redirect_to new_user_path
   end
-    
-  # Updates the user's password from the action /reset_password/:id
-  # Checks id included and ensure password field isn't blank
+  
   def update
     if params[:id].nil?
       render :action => 'new'

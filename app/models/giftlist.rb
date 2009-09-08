@@ -23,7 +23,6 @@ class Giftlist
 	#  					      `permissions`.`role_id`,
   #						      `permissions`.`user_id`,
 	#	INNER JOIN	`permissions` ON `users`.`id` = `permissions`.`user_id`
-
   end
 
 end

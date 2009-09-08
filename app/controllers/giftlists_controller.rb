@@ -14,7 +14,7 @@ class GiftlistsController < ApplicationController
 	  session[:wedding_venue] ||= nil
 	  session[:image_url] ||= nil
   end
-    
+  
 	def search
 		@page_title = "Search for a Bride or Groom by Gift List Number"
 		session[:customer_number] = nil

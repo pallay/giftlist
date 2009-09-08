@@ -1,13 +1,8 @@
 <fieldset id="customer-number-search">
-    <legend>Find the Bride &amp; Groom!</legend>
-    <%# form_tag(	{:action => "giftlistnumber_search_validate"},
-					{:method => "get"},
-					{:id => "customer-number-search-form"}) do -%>
-		<img src="/images/misc/template-new-cutting2_04.gif" align="left"/>
-		<%#= text_field_with_auto_complete	:order,
-											:customer_number,
-											{:class=>"text", :size => 10},
-											{:skip_style => false, :min_chars => 2} %>
-		<%#= submit_tag "Go", :class => "submit"%>
-    <%# end -%>
+  <legend>Find the Bride &amp; Groom!</legend>
+  <%# form_tag(	{:action => "giftlistnumber_search_validate"}, {:method => "get"}, {:id => "customer-number-search-form"}) do -%>
+	<img src="/images/misc/template-new-cutting2_04.gif" align="left"/>
+  <%#= text_field_with_auto_complete :order, :customer_number, {:class=>"text", :size => 10}, {:skip_style => false, :min_chars => 2} %>
+  <%#= submit_tag "Go", :class => "submit"%>
+  <%# end -%>
 </fieldset>

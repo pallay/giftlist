@@ -1,5 +1,5 @@
 class SupportController < ApplicationController
-  
+
   def index
   end
 
@@ -10,5 +10,5 @@ class SupportController < ApplicationController
   def terms
     @title = "Terms and Conditions"  
   end
-  
+
 end

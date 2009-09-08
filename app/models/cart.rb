@@ -5,7 +5,7 @@ class Cart
 	def initialize
 		@items = []
 	end
-	
+
 	def add_product(product)
 		current_item = @items.find {|item| item.product == product}
 		if current_item
@@ -31,7 +31,7 @@ class Cart
 	def has_product_id(item, product_id)
 		return item.product_id = product_id
 	end
-	
+
 	def has_item(product_id)
 		@items.each do |item|
 			if has_product_id(item, product_id)  

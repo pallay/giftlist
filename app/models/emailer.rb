@@ -10,5 +10,5 @@ class Emailer < ActionMailer::Base
    	@body["message"] = message
     @headers = {}
    end
-   
+
 end

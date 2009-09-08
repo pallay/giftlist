@@ -1,6 +1,6 @@
 <%= render :partial => "giftlistnumber_search_box" %>
 
 <% if @giftlistnumbers -%>
-	<p> Your search for number" <%= params[:giftlistnumber] %>" produced the following results: </p>
-	<%= render(:partial => "giftlistnumbers") %>
+	<p>Your search for number" <%= params[:giftlistnumber] %>" produced the following results:</p>
+	<%= render :partial => "giftlistnumbers" %>
 <% end -%>

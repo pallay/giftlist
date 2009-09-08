@@ -1,17 +1,10 @@
 <ul class="orders">
-<% for customer in @giftlistnumber do -%>
-	<li class="order">
-
-		<div class="customer_number">
-			<%= h customer.customer_number %>
-		</div>
-
-		<div class="names">
-			<span class="informal">
-				<%= h customer.first_name.capitalize %>
-			</span>
-		</div>
-
-	</li>
-<% end -%>
+  <% for customer in @giftlistnumber do -%>
+  	<li class="order">
+		  <div class="customer_number"><%= h customer.customer_number %></div>
+		  <div class="names">
+			  <span class="informal"><%= h customer.first_name.capitalize %></span>
+		  </div>
+	  </li>
+  <% end -%>
 </ul>

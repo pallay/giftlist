@@ -1,6 +1,5 @@
 Dear <%= @customer.first_name %>
 
-
 Thank you for creating your Gift List on ShaadiGiftList.com today.
 
 Your customer number is <%= @order.customer_number %>. This is the same number for you and also your partner <%= @partner.first_name %>.
@@ -8,15 +7,14 @@ Please keep this for future reference and quote it if you need to get in contact
 
 The following items have been added to your Shaadi Gift List:
 
-<%= render(:partial => "./line_item", :collection => @line_items) %>
+<%= render(:partial => "line_item", :collection => @line_items) %>
 
 These can be amended by logging onto your personalised management page, which can be found here: www.shaadigiftlist.com/login/login.
 You can also amend your personal details by following a link on there.
 
-We will send you a seperate email when the order is shipped which will be nearer you wedding date.
+We will send you a separate email when the order is shipped which will be nearer your wedding date.
 
 Finally, Congratulation and many you have a long and happy life together.
-
 
 Regards,
 

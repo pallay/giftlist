@@ -1,5 +1,5 @@
 class LineItem < ActiveRecord::Base
-	
+
 	belongs_to		:order
 	belongs_to  	:customer
 	has_one			  :product, :foreign_key => 'id' #got to join with the products table via id AND NOT line_item_id

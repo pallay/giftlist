@@ -10,8 +10,6 @@
 <% form_for :user, :url => user_url(@user), :html => { :method => :put } do |f| %>
 
   <p>Email:<br /><%= f.text_field :email, :size => 60 %></p>
-  
 	<%= submit_tag 'Save' %>
 
 <% end %>
-

@@ -11,5 +11,5 @@ module DashboardHelper
   def format_date(date)
     h date.strftime('%a the %d of %B %Y').gsub(/(\d+)/) { |s| s.to_i < 31?s.to_i.ordinalize : s }
   end
-	
+
 end

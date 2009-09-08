@@ -20,11 +20,11 @@
 #      audit.save
 #    end
 #  end
-  
+
   #####################################
  #  Taken from ruby forge, observer  #
 ##################################### 
- 
+
   require 'singleton'
 
 module ActiveRecord

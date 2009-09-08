@@ -1,6 +1,6 @@
 <div>
 	<%= image_tag item.image_url, :size => "30x30", :alt => 'product image' %>
-	<%= link_to item.name,	:controller => :checkout, :action => :show_product, :id => item.product_id %>
+	<%= link_to item.name, :controller => :checkout, :action => :show_product, :id => item.product_id %>
 	<%= number_to_pound(item.price) %>
-	<%= remove_item_link("x", item.line_item_id) %>
+	<%= remove_item_link "x", item.line_item_id %>
 </div>

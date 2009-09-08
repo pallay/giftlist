@@ -21,7 +21,7 @@ class GuestController < ApplicationController
 		@image_url = wedding_details.image_url
 		session[:guestcart] ||= nil    
   end
-  
+
 	def add
 		items_from_guestcart ||= LineItem.get_line_item_details2(params[:id])
 		if items_from_guestcart

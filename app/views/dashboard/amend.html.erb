@@ -18,10 +18,9 @@
 			<% end %>
 		</div>
 	<% end %>
+
 	<div class="breaker"></div>
 	<%= will_paginate @products %>
 </div>
 
-<div class="back-button">
-	<%= button_to 'Back', :action => 'index' %>
-</div>
+<div class="back-button"><%= button_to 'Back', :action => 'index' %></div>

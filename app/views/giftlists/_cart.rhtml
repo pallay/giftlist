@@ -1,8 +1,5 @@
-<div id="cart_notice">
-	<% if flash[:cart_notice] -%>
-		<%= flash[:cart_notice] -%>
-	<% end %>
-</div>
+<div id="cart_notice"> <%= flash[:cart_notice] if flash[:cart_notice] -%></div>
+
 <div class="cart-title">
 	<h3>Your Gift List So Far</h3>
 </div>
@@ -15,4 +12,5 @@
 	</tr>
 </table>
 <br/>
+
 <%= button_to "Save your Gift List", :action => 'details' unless controller.action_name == 'details' %>

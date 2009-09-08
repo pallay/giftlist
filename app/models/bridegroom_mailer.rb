@@ -6,5 +6,5 @@ class BridegroomMailer < ActionMailer::Base
 		subject 	  "Thank you for Registering"
 		body		    :customer => customer
 	end
-	
+
 end
