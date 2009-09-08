@@ -5,14 +5,14 @@ class AddPermissionsData < ActiveRecord::Migration
     Role.create(:role_name => 'administrator')
     # Then, add default admin user
     user = User.new
-    user.login = "admin"
+    user.username = "admin"
     user.email = "talk2us@rockytrack.co.uk"
     user.password = "admin"
     user.password_confirmation = "admin"
     user.save(false)
-    user.send(:activate)
+    # user.send(:activate)
     role = Role.find_by_role_name('administrator')
-    user = User.find_by_login('admin')
+    user = User.find_by_username('admin')
     permission = Permission.new
     permission.role = role
     permission.user = user
@@ -20,7 +20,7 @@ class AddPermissionsData < ActiveRecord::Migration
     
 #    Role.create(:role_name => 'groom')
 #    user = User.new
-#    user.login = "pallay"
+#    user.username = "pallay"
 #    user.first_name = "pallay"
 #    user.last_name = "raunu"
 #    user.date_of_birth = "08/07/1981"
@@ -31,7 +31,7 @@ class AddPermissionsData < ActiveRecord::Migration
 #    user.save(false)
     #user.send(:activate)
 #    role = Role.find_by_role_name('groom')
-#    user = User.find_by_login('pallay')
+#    user = User.find_by_username('pallay')
 #    permission = Permission.new
 #    permission.role = role
 #    permission.user = user
@@ -40,7 +40,7 @@ class AddPermissionsData < ActiveRecord::Migration
     # Create a bride user
 #    Role.create(:role_name => 'bride')
 #    user = User.new
-#    user.login = "palinder"
+#    user.username = "palinder"
 #    user.first_name = "palinder"
 #    user.last_name = "randhawa"
 #    user.date_of_birth = "01/02/1983"
@@ -51,7 +51,7 @@ class AddPermissionsData < ActiveRecord::Migration
 #    user.save(false)
     #user.send(:activate)
 #    role = Role.find_by_role_name('bride')
-#    user = User.find_by_login('palinder')
+#    user = User.find_by_username('palinder')
 #    permission = Permission.new
 #    permission.role = role
 #    permission.user = user
@@ -60,7 +60,7 @@ class AddPermissionsData < ActiveRecord::Migration
     # Create a guest user
 #    Role.create(:role_name => 'guest')
 #    user = User.new
-#    user.login = "moseeds"
+#    user.username = "moseeds"
 #    user.email = "moseeds@googlemail.com"
 #    user.first_name = "mohammed"
 #    user.last_name = "seedat"
@@ -71,7 +71,7 @@ class AddPermissionsData < ActiveRecord::Migration
 #    user.save(false)
 #    #user.send(:activate)
 #    role = Role.find_by_role_name('guest')
-#    user = User.find_by_login('moseeds')
+#    user = User.find_by_username('moseeds')
 #    permission = Permission.new
 #    permission.role = role
 #    permission.user = user
@@ -80,7 +80,7 @@ class AddPermissionsData < ActiveRecord::Migration
 
   def self.down
     Role.find_by_role_name('administrator').destroy   
-    User.find_by_login('admin').destroy
+    User.find_by_username('admin').destroy
   end
 
 end

@@ -20,7 +20,7 @@ class DashboardController < ApplicationController
 	in_place_edit_for :user, :contact_number
 	in_place_edit_for :user, :evening_number
 	in_place_edit_for :user, :mobile_number
-	in_place_edit_for :user, :login
+	in_place_edit_for :user, :username
 	in_place_edit_for :user, :password
 
 	in_place_edit_for :address, :line_one

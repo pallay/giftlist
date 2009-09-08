@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
 
   def show_by_login
-    @user = User.find_by_login(params[:login])
+    @user = User.find_by_username(params[:username])
     render :action => 'show'
   end
   

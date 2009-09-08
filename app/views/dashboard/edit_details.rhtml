@@ -19,7 +19,7 @@
 	<% @user.evening_number = '-' if !@user.evening_number || @user.evening_number.strip == '' -%>
 	<%= in_place_editor_field :user, :evening_number %><br/>
 	<span id="user_name">User Name:</span>
-	<% @user.login = '-' if !@user.login || @user.login.strip == '' -%>
+	<% @user.username = '-' if !@user.username || @user.username.strip == '' -%>
 	<%= in_place_editor_field :user, :login %><br/>
 
 	<%= error_messages_for :user %>

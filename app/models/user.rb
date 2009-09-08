@@ -3,17 +3,17 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
 
   include LoginSystem
-  # include Authentication::ByPassword
-  # include Authentication::ByCookieToken
+  include Authentication
+  include Authentication::ByPassword
+  include Authentication::ByCookieToken
 
+  def self.find_customer_all
+    find(:all, :order => "username")
+  end
 
-  named_scope find_customer_all {
-    find(:all, :order => "login")
-  }
-
-  named_scope find_customer_all {
+  def self.find_order
     find(:all, :order => "name")
-  }
+  end
 
   after_create :send_account_activated_mail
 
@@ -22,12 +22,12 @@ class User < ActiveRecord::Base
 
   # prevents user from submitting a crafted form that bypasses activation
   # (anything else a user can change should be added here)
-  attr_accessible :login, :email, :password, :password_confirmation
+  attr_accessible :username, :email, :password, :password_confirmation
 
-  validates_length_of       :login,    :within => 3..40, :too_short => "A username must be at least 2 characters long", :too_long => "A username must be less than 40 characters"
-  validates_presence_of     :login
-  validates_uniqueness_of   :login,    :case_sensitive => false, :message => "That username has already been taken."
-  validates_format_of       :login,    :with => /^[a-zA-Z]\w+$/, :message  => 'A username should only comprise letters and/or numbers'
+  validates_length_of       :username,    :within => 3..40, :too_short => "A username must be at least 2 characters long", :too_long => "A username must be less than 40 characters"
+  validates_presence_of     :username
+  validates_uniqueness_of   :username,    :case_sensitive => false, :message => "That username has already been taken."
+  validates_format_of       :username,    :with => /^[a-zA-Z]\w+$/, :message  => 'A username should only comprise letters and/or numbers'
   validates_format_of       :email,    :with => /(^([^@\s]+)@((?:[-_a-z0-9]+\.)+[a-z]{2,})$)|(^$)/i,:message => "Please supply a valid email address e.g. bob@example.com"
   validates_presence_of     :email
   validates_uniqueness_of   :email,    :case_sensitive => false, :message => "That email address is associated with another account"
@@ -105,13 +105,13 @@ class User < ActiveRecord::Base
 
   after_save :stop_subsequently_password_required_requests
 
-  def self.authenticate(login, password)
-    user = find :first, :conditions => {:login => login}
+  def self.authenticate(uname, password)
+    user = find :first, :conditions => {:username => uname}
     user && user.authenticated?(password) ? user : nil
   end
 
-  def login=(login)
-    self.write_attribute(:login, login.downcase)
+  def username=(uname)
+    self.write_attribute(:username, uname.downcase)
   end
 
   def validate_password_reset
@@ -208,7 +208,7 @@ class User < ActiveRecord::Base
   # before filter 
   def encrypt_password
     return if password.blank?
-    self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{login}--") if new_record?
+    self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{self.username}--") if new_record?
     self.crypted_password = encrypt(password)
   end
     
@@ -231,7 +231,7 @@ end
 # 
 #   named_scope :activity_within, lambda { |time|
 #     {:conditions => ['user_logs.created_at > ?', Time.now - time],
-#      :select => 'users.id, users.login',
+#      :select => 'users.id, users.username',
 #      :joins => 'INNER JOIN user_logs ON user_logs.user_id = users.id',
 #      :group => 'users.id'}
 #     }

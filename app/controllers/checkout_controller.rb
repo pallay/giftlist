@@ -21,7 +21,7 @@ class CheckoutController < ApplicationController
 			giftmessage = GiftMessage.new(params[:giftmessage])
 		end
 		random_number = rand.to_s
-		user.update_attributes(:login => 'gue5t', :password => random_number, :password_confirmation => random_number)
+		user.update_attributes(:username => 'gue5t', :password => random_number, :password_confirmation => random_number)
 		# :customer_type_id => 3 need to add via permissions,
 		payment.update_attributes(:payment_method_id => 1, :customer_ip => @ip, :date_purchased => Time.now)
 		if inputted_message
