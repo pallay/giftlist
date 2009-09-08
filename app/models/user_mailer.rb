@@ -7,7 +7,7 @@ class UserMailer < ActionMailer::Base
     @body[:account_creation_faq_url] = "http://www.rockytrack.co.uk/support/account_creation_faq"
   end
   
-  def activation(user)
+  def account_activated(user)
     setup_email(user)
     @subject    += 'Your account has been activated!'
     @body[:login_url]  = "#{@url}/login/"
