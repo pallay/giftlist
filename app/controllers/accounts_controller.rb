@@ -4,7 +4,7 @@ class AccountsController < ApplicationController
 
   before_filter :login_required, :except => :show
   before_filter :not_logged_in_required, :only => :show
- 
+
   # Activate action (from activation code sent to user via email on signup)
   def show
     # Uncomment and change paths to have user logged in after activation
@@ -29,7 +29,7 @@ class AccountsController < ApplicationController
 
   # User updating the password on their profile action  
   def update
-  return unless request.post?
+    return unless request.post?
     if User.authenticate(current_user.username, params[:old_password])
       if ((params[:password] == params[:password_confirmation]) && !params[:password_confirmation].blank?)
         current_user.password_confirmation = params[:password_confirmation]

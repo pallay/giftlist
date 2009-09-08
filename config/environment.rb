@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.0.2' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.3' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -40,8 +40,6 @@ Rails::Initializer.run do |config|
     :session_key => '_shaadigiftlist_rails2_session_key',
     :secret      => 'a1c9a6c03c7e764178148edeb57c8f3e45a4b32d5f88c7e4783fb781ca59f44d6b92183292acf14b6c387128180884259436783adc3e0e38c80eebc97fdee64a'
   }
-
-  require "ruby-debug"
 
   # Use the database for sessions instead of the cookie-based default,
   # which shouldn't be used to store highly confidential information

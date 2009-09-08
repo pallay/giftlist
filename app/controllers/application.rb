@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
 # belongs_to :bridegroom, :class => 'User'
 
   include LoginSystem
-	include DebugHelper
 
 	before_filter :init_user, :partial_info
 
