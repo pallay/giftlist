@@ -7,5 +7,6 @@ db/schema.rb
 db/database.yml
 log/*
 tmp/*
-ensembli.tmproj
+shaadigiftlist.tmproj
 .autotest
+shaadigiftlist.i*
